@@ -1,0 +1,82 @@
+{
+    "IMG_7095.jpg": {
+        "city": "CALIFORNIA",
+        "country": "",
+        "display_name": "Starbucks CALIFORNIA Mug",
+        "description": "This mug features a design representing California.",
+        "confidence": 1,
+        "taken_at": null
+    },
+    "IMG_3723.jpeg": {
+        "city": "Sabah",
+        "country": "",
+        "display_name": "Starbucks Sabah Mug",
+        "description": "This mug represents Sabah, a region in Malaysia known for its natural beauty and wildlife.",
+        "confidence": 1,
+        "taken_at": null
+    },
+    "IMG_7095.jpeg": {
+        "city": "California",
+        "country": "",
+        "display_name": "Starbucks California Mug",
+        "description": "This Starbucks mug features California-themed designs.",
+        "confidence": 1,
+        "taken_at": null
+    },
+    "IMG_7104.jpeg": {
+        "city": "Thailand",
+        "country": "",
+        "display_name": "Starbucks Thailand Mug",
+        "description": "This Starbucks mug features designs representing Thailand.",
+        "confidence": 1,
+        "taken_at": null
+    },
+    "IMG_7112.jpeg": {
+        "city": "Canada",
+        "country": "",
+        "display_name": "Starbucks Canada Mug",
+        "description": "This mug features iconic symbols representing Canada.",
+        "confidence": 1,
+        "taken_at": null
+    },
+    "IMG_7124.jpeg": {
+        "city": "Japan",
+        "country": "",
+        "display_name": "Starbucks Japan Mug",
+        "description": "This mug represents Japan with iconic imagery and cultural elements.",
+        "confidence": 1,
+        "taken_at": null
+    },
+    "IMG_7130.jpeg": {
+        "city": "Hualienbay",
+        "country": "",
+        "display_name": "Starbucks Hualienbay Mug",
+        "description": "The mug features an abstract design that suggests a modern architectural style.",
+        "confidence": 1,
+        "taken_at": null
+    },
+    "IMG_7134.jpeg": {
+        "city": "Hotel Resonance Taipei",
+        "country": "",
+        "display_name": "Starbucks Hotel Resonance Taipei Mug",
+        "description": "The mug design features abstract illustrations but does not indicate a specific city or country.",
+        "confidence": 1,
+        "taken_at": null
+    },
+    "IMG_7135.jpeg": {
+        "city": "Thailand",
+        "country": "",
+        "display_name": "Starbucks Thailand Mug",
+        "description": "This mug represents Thailand, showcasing its cultural elements.",
+        "confidence": 1,
+        "taken_at": null
+    },
+    "IMG_8673.jpeg": {
+        "city": "Netherlands",
+        "country": "",
+        "display_name": "Starbucks Netherlands Mug",
+        "description": "The mug represents various symbols associated with the Netherlands.",
+        "confidence": 1,
+        "taken_at": null
+    }
+}

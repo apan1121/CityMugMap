@@ -1,0 +1,15 @@
+{
+    "id": "tokyo-japan-20260319-01",
+    "city_key": "tokyo-japan",
+    "city": "Tokyo",
+    "country": "Japan",
+    "display_name": "Tokyo",
+    "description": "The mug features designs representing Tokyo, Japan.",
+    "lat": 35.6768601,
+    "lng": 139.7638947,
+    "source_image": "IMG_7122.jpeg",
+    "confidence": 0.95,
+    "taken_at": null,
+    "created_at": "2026-03-19T05:18:56+00:00",
+    "updated_at": "2026-03-19T05:18:56+00:00"
+}

@@ -1,0 +1,15 @@
+{
+    "id": "shanghai-china-20260319-01",
+    "city_key": "shanghai-china",
+    "city": "Shanghai",
+    "country": "China",
+    "display_name": "Shanghai",
+    "description": "The mug features iconic landmarks of Shanghai, including the Oriental Pearl Tower.",
+    "lat": 31.2312707,
+    "lng": 121.4700152,
+    "source_image": "IMG_7110.jpeg",
+    "confidence": 0.95,
+    "taken_at": null,
+    "created_at": "2026-03-19T05:17:59+00:00",
+    "updated_at": "2026-03-19T05:17:59+00:00"
+}

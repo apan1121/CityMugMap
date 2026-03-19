@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Byron 的 Starbucks 城市杯收藏地圖 | City Mug Map</title>
+    <meta name='author' content='Byron.Chen' />
+    <meta name='apple-mobile-web-app-title' content='City Mug Map' />
+    <meta name='apple-mobile-web-app-capable' content='yes' />
+    <meta name='apple-touch-fullscreen' content='yes' />
+    <meta name='apple-mobile-web-app-status-bar-style' content='black' />
+    <meta name='mobile-web-app-capable' content='yes' />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content="Byron 的 City Mug Map 記錄個人 Starbucks 星巴克城市杯收藏，用地圖與列表整理每一只城市杯的照片、城市故事與旅行記憶。" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#173221" />
+    <meta name="keywords" content="Starbucks, 星巴克, 城市杯, city mug, 收藏地圖, GeoJSON, OpenStreetMap" />
+    <meta name="application-name" content="City Mug Map" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="./dist/img/coffee_logo.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="./dist/img/coffee_logo.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="./dist/img/coffee_logo.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="./dist/img/coffee_logo.png"/>
+    <link rel="apple-touch-icon" href="./dist/img/coffee_logo.png"/>
+
+    <meta property="og:site_name" content="City Mug Map" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:image" content="./dist/img/preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:title" content="Byron 的 Starbucks 城市杯收藏地圖 | City Mug Map" />
+    <meta property="og:description" content="Byron 的個人 Starbucks 星巴克城市杯收藏網站，用地圖與列表整理每一只城市杯的照片、城市故事與旅行記憶。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Byron 的 Starbucks 城市杯收藏地圖 | City Mug Map" />
+    <meta name="twitter:description" content="Byron 的個人 Starbucks 星巴克城市杯收藏網站，用地圖與列表整理每一只城市杯的照片、城市故事與旅行記憶。" />
+    <meta name="twitter:image" content="./dist/img/preview.jpg" />
+
+    <link rel="icon" href="./dist/img/coffee_logo.png" type="image/png" />
+    <link rel="shortcut icon" href="./dist/img/coffee_logo.png" type="image/png" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""
+    >
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""
+    ></script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Byron 的 Starbucks 城市杯收藏地圖",
+            "alternateName": "City Mug Map",
+            "description": "Byron 的個人 Starbucks 星巴克城市杯收藏網站，用地圖與列表整理每一只城市杯的照片、城市故事與旅行記憶。",
+            "author": {
+                "@type": "Person",
+                "name": "Byron"
+            },
+            "inLanguage": "zh-TW",
+            "about": [
+                "Starbucks city mug collection",
+                "OpenStreetMap",
+                "GeoJSON"
+            ]
+        }
+    </script>
+
+    <script>
+        var jsVars = {
+            CONFIG: {
+                LOCALE_SUPPORT: {'en': 'english', 'zh-TW': '中文'},
+            },
+        };
+        var v = new Date().getTime();
+        var head = document.querySelector('head');
+
+
+        var setNode = function(url, type, index){
+            var node = document.createElement('div');
+            switch (type) {
+                case 'link':
+                    node = document.createElement('link');
+                    node.rel = "stylesheet";
+                    node.href = url + '?v=' + v;
+                    break;
+                case 'script':
+                    node = document.createElement('script');
+                    node.src = url + '?v=' + v;
+                    node.dataset.bundle = 1;
+                    node.dataset.ready = 0;
+                    node.onload = function(){
+                        this.dataset.ready = 1;
+                    };
+                    break;
+                default:
+                    break;
+            }
+            head.appendChild(node);
+        };
+
+        // var setCssNode = function(url){
+        //     var link = document.createElement('link');
+        //     link.rel = "stylesheet";
+        //     link.href = url + '?v=' + v;
+        //     body.appendChild(link);
+        // };
+
+        // var setJsNode = function(url){
+        //     var script = document.createElement('script');
+        //     script.src = url + '?v=' + v;
+        //     body.appendChild(script);
+        // };
+
+        var css_links = [
+            "./dist/css/page/page.css",
+            "./dist/css/icomoon/style.css",
+        ];
+
+        for (var cssLinkIndex in css_links) {
+            setNode(css_links[cssLinkIndex], 'link');
+        }
+
+        var js_links = [
+            "./dist/js/dll/library.dll.bundle.js",
+            "./dist/js/dll/vendor.dll.bundle.js",
+            './dist/js/chunk/lib.bundle.js',
+            './dist/js/chunk/node_modules.bundle.js',
+        ];
+
+        for (var jsLinkIndex in js_links) {
+            var url = js_links[jsLinkIndex];
+            setNode(url, 'script');
+        }
+    </script>
+</head>
+<body>
+    <div id="appBox" cz-shortcut-listen="true">
+        <main-page></main-page>
+    </div>
+    <noscript>
+        <main>
+            <h1>Byron 的 Starbucks 城市杯收藏地圖</h1>
+            <p>City Mug Map 記錄 Byron 的個人 Starbucks 星巴克城市杯收藏，用地圖與列表整理每一只城市杯的照片、城市故事與旅行記憶。</p>
+        </main>
+    </noscript>
+    <script>
+        var readyToLoadTimer = null;
+        clearInterval(readyToLoadTimer);
+        readyToLoadTimer = setInterval(function(){
+            var scripts = document.querySelectorAll('script');
+            var canLoad = true;
+            for (var index in scripts) {
+                if (scripts[index].src && typeof scripts[index].dataset.bundle !== 'undefined'){
+                    if (scripts[index].dataset.ready == 0) {
+                        canLoad = false;
+                        break;
+                    }
+                }
+            }
+            if (canLoad) {
+                clearInterval(readyToLoadTimer);
+                setNode("./dist/js/app/index.bundle.js", 'script');
+            }
+        }, 1);
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZG82XDYLM6"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZG82XDYLM6');
+    </script> -->
+
+    <!-- Paste this right before your closing </head> tag -->
+    <!-- <script type = "text/javascript" >
+        (function(f, b) {
+            if (!b.__SV) {
+                var e, g, i, h;
+                window.mixpanel = b;
+                b._i = [];
+                b.init = function(e, f, c) {
+                    function g(a, d) {
+                        var b = d.split(".");
+                        2 == b.length && ((a = a[b[0]]), (d = b[1]));
+                        a[d] = function() {
+                            a.push([d].concat(Array.prototype.slice.call(arguments, 0)));
+                        };
+                    }
+                    var a = b;
+                    "undefined" !== typeof c ? (a = b[c] = []) : (c = "mixpanel");
+                    a.people = a.people || [];
+                    a.toString = function(a) {
+                        var d = "mixpanel";
+                        "mixpanel" !== c && (d += "." + c);
+                        a || (d += " (stub)");
+                        return d;
+                    };
+                    a.people.toString = function() {
+                        return a.toString(1) + ".people (stub)";
+                    };
+                    i = "disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");
+                    for (h = 0; h < i.length; h++) g(a, i[h]);
+                    var j = "set set_once union unset remove delete".split(" ");
+                    a.get_group = function() {
+                        function b(c) {
+                            d[c] = function() {
+                                call2_args = arguments;
+                                call2 = [c].concat(Array.prototype.slice.call(call2_args, 0));
+                                a.push([e, call2]);
+                            };
+                        }
+                        for (var d = {}, e = ["get_group"].concat(Array.prototype.slice.call(arguments, 0)), c = 0; c < j.length; c++) b(j[c]);
+                        return d;
+                    };
+                    b._i.push([e, f, c]);
+                };
+                b.__SV = 1.2;
+                e = f.createElement("script");
+                e.type = "text/javascript";
+                e.async = !0;
+                e.src = "undefined" !== typeof MIXPANEL_CUSTOM_LIB_URL ? MIXPANEL_CUSTOM_LIB_URL : "file:" === f.location.protocol && "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//) ? "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js" : "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";
+                g = f.getElementsByTagName("script")[0];
+                g.parentNode.insertBefore(e, g);
+            }
+        })(document, window.mixpanel || []);
+        mixpanel.init("fbcb54012cd09566c4d2df34549b76c5");
+    </script> -->
+</body>
+</html>

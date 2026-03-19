@@ -1,0 +1,15 @@
+{
+    "id": "lake-tahoe-usa-20260319-01",
+    "city_key": "lake-tahoe-usa",
+    "city": "Lake Tahoe",
+    "country": "Usa",
+    "display_name": "Lake Tahoe",
+    "description": "A scenic view representing Lake Tahoe with mountains and water.",
+    "lat": 39.0885405,
+    "lng": -120.0503528,
+    "source_image": "IMG_7106.jpeg",
+    "confidence": 0.95,
+    "taken_at": null,
+    "created_at": "2026-03-19T05:17:50+00:00",
+    "updated_at": "2026-03-19T05:17:50+00:00"
+}

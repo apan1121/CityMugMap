@@ -1,0 +1,15 @@
+{
+    "id": "paris-france-20260319-01",
+    "city_key": "paris-france",
+    "city": "Paris",
+    "country": "France",
+    "display_name": "Paris",
+    "description": "The mug features iconic landmarks from Paris, including the Eiffel Tower and the Arc de Triomphe.",
+    "lat": 48.8534951,
+    "lng": 2.3483915,
+    "source_image": "IMG_7100.jpeg",
+    "confidence": 0.95,
+    "taken_at": null,
+    "created_at": "2026-03-19T05:17:05+00:00",
+    "updated_at": "2026-03-19T05:17:05+00:00"
+}
