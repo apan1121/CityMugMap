@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[180],{180(e){e.exports=JSON.parse('{"WebsiteTitle":"Vue test page"}')}}]);
