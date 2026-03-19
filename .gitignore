@@ -1,0 +1,15 @@
+
+/node_modules
+.env
+.env.backup
+.phpunit.result.cache
+.vscode
+.DS_Store
+composer.lock
+package-lock.json
+/vendor/
+/storage/
+/config/config.php
+/config/sheet.json
+
+
