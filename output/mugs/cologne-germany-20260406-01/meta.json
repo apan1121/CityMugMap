@@ -1,0 +1,18 @@
+{
+    "id": "cologne-germany-20260406-01",
+    "type": "city",
+    "venue": "",
+    "google_maps_url": null,
+    "city_key": "cologne-germany",
+    "city": "Cologne",
+    "country": "Germany",
+    "display_name": "Cologne",
+    "description": "This mug features the city of Cologne, known for its iconic cathedral and vibrant culture.",
+    "lat": 50.938361,
+    "lng": 6.959974,
+    "source_image": "IMG_7114.jpeg",
+    "confidence": 0.9,
+    "taken_at": null,
+    "created_at": "2026-04-06T06:33:24+00:00",
+    "updated_at": "2026-04-06T06:33:24+00:00"
+}

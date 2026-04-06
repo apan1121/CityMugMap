@@ -1,0 +1,18 @@
+{
+    "id": "miami-united-states-20260406-01",
+    "type": "city",
+    "venue": "",
+    "google_maps_url": null,
+    "city_key": "miami-united-states",
+    "city": "Miami",
+    "country": "United States",
+    "display_name": "Miami",
+    "description": "This mug represents Miami, known for its vibrant culture and beautiful beaches.",
+    "lat": 25.7741566,
+    "lng": -80.1935973,
+    "source_image": "IMG_7099.jpeg",
+    "confidence": 0.95,
+    "taken_at": null,
+    "created_at": "2026-04-06T06:32:18+00:00",
+    "updated_at": "2026-04-06T06:32:18+00:00"
+}

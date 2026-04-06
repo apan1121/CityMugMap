@@ -1,0 +1,18 @@
+{
+    "id": "lake-tahoe-united-states-20260406-01",
+    "type": "city",
+    "venue": "",
+    "google_maps_url": null,
+    "city_key": "lake-tahoe-united-states",
+    "city": "Lake Tahoe",
+    "country": "United States",
+    "display_name": "Lake Tahoe",
+    "description": "A scenic area known for its stunning lake and mountainous landscapes.",
+    "lat": 39.0885405,
+    "lng": -120.0503528,
+    "source_image": "IMG_7106.jpeg",
+    "confidence": 0.9,
+    "taken_at": null,
+    "created_at": "2026-04-06T06:38:42+00:00",
+    "updated_at": "2026-04-06T06:38:42+00:00"
+}

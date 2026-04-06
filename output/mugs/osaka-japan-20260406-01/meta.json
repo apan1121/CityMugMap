@@ -1,0 +1,18 @@
+{
+    "id": "osaka-japan-20260406-01",
+    "type": "city",
+    "venue": "",
+    "google_maps_url": null,
+    "city_key": "osaka-japan",
+    "city": "Osaka",
+    "country": "Japan",
+    "display_name": "Osaka",
+    "description": "This mug represents the vibrant city of Osaka in Japan.",
+    "lat": 34.6937569,
+    "lng": 135.5014539,
+    "source_image": "IMG_7123.jpeg",
+    "confidence": 0.95,
+    "taken_at": null,
+    "created_at": "2026-04-06T06:33:54+00:00",
+    "updated_at": "2026-04-06T06:33:54+00:00"
+}

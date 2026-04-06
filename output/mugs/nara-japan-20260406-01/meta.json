@@ -1,0 +1,18 @@
+{
+    "id": "nara-japan-20260406-01",
+    "type": "city",
+    "venue": "",
+    "google_maps_url": null,
+    "city_key": "nara-japan",
+    "city": "Nara",
+    "country": "Japan",
+    "display_name": "Nara",
+    "description": "A city mug representing Nara, known for its historical sites and deer parks.",
+    "lat": 34.6845445,
+    "lng": 135.8048359,
+    "source_image": "IMG_7125.jpeg",
+    "confidence": 0.9,
+    "taken_at": null,
+    "created_at": "2026-04-06T06:34:05+00:00",
+    "updated_at": "2026-04-06T06:34:05+00:00"
+}

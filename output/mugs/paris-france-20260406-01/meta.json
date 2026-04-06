@@ -1,0 +1,18 @@
+{
+    "id": "paris-france-20260406-01",
+    "type": "city",
+    "venue": "",
+    "google_maps_url": null,
+    "city_key": "paris-france",
+    "city": "Paris",
+    "country": "France",
+    "display_name": "Paris",
+    "description": "This mug features iconic landmarks from Paris, such as the Eiffel Tower.",
+    "lat": 48.8534951,
+    "lng": 2.3483915,
+    "source_image": "IMG_7100.jpeg",
+    "confidence": 0.95,
+    "taken_at": null,
+    "created_at": "2026-04-06T06:32:23+00:00",
+    "updated_at": "2026-04-06T06:32:23+00:00"
+}

@@ -1,0 +1,18 @@
+{
+    "id": "seattle-united-states-20260406-01",
+    "type": "city",
+    "venue": "",
+    "google_maps_url": null,
+    "city_key": "seattle-united-states",
+    "city": "Seattle",
+    "country": "United States",
+    "display_name": "Seattle",
+    "description": "A city mug representing Seattle, known for its iconic skyline and coffee culture.",
+    "lat": 47.6038321,
+    "lng": -122.330062,
+    "source_image": "IMG_7105.jpeg",
+    "confidence": 0.9,
+    "taken_at": null,
+    "created_at": "2026-04-06T06:32:49+00:00",
+    "updated_at": "2026-04-06T06:32:49+00:00"
+}

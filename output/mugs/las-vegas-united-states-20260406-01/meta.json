@@ -1,0 +1,18 @@
+{
+    "id": "las-vegas-united-states-20260406-01",
+    "type": "city",
+    "venue": "",
+    "google_maps_url": null,
+    "city_key": "las-vegas-united-states",
+    "city": "Las Vegas",
+    "country": "United States",
+    "display_name": "Las Vegas",
+    "description": "A Starbucks mug featuring iconic elements from Las Vegas.",
+    "lat": 36.1674263,
+    "lng": -115.1484131,
+    "source_image": "IMG_7103.jpeg",
+    "confidence": 0.95,
+    "taken_at": null,
+    "created_at": "2026-04-06T06:32:38+00:00",
+    "updated_at": "2026-04-06T06:32:38+00:00"
+}

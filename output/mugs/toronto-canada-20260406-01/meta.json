@@ -1,0 +1,18 @@
+{
+    "id": "toronto-canada-20260406-01",
+    "type": "city",
+    "venue": "",
+    "google_maps_url": null,
+    "city_key": "toronto-canada",
+    "city": "Toronto",
+    "country": "Canada",
+    "display_name": "Toronto",
+    "description": "This mug represents the city of Toronto, Canada.",
+    "lat": 43.6534817,
+    "lng": -79.3839347,
+    "source_image": "IMG_7109.jpeg",
+    "confidence": 0.95,
+    "taken_at": null,
+    "created_at": "2026-04-06T06:32:58+00:00",
+    "updated_at": "2026-04-06T06:32:58+00:00"
+}

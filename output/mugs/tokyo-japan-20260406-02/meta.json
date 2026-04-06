@@ -1,0 +1,18 @@
+{
+    "id": "tokyo-japan-20260406-02",
+    "type": "city",
+    "venue": "",
+    "google_maps_url": null,
+    "city_key": "tokyo-japan",
+    "city": "Tokyo",
+    "country": "Japan",
+    "display_name": "Tokyo",
+    "description": "This mug represents the city of Tokyo, showcasing iconic landmarks.",
+    "lat": 35.6768601,
+    "lng": 139.7638947,
+    "source_image": "IMG_7136.jpeg",
+    "confidence": 0.95,
+    "taken_at": null,
+    "created_at": "2026-04-06T07:02:32+00:00",
+    "updated_at": "2026-04-06T07:02:32+00:00"
+}

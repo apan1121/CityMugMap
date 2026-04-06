@@ -1,0 +1,18 @@
+{
+    "id": "fukuoka-japan-20260406-01",
+    "type": "city",
+    "venue": "",
+    "google_maps_url": null,
+    "city_key": "fukuoka-japan",
+    "city": "Fukuoka",
+    "country": "Japan",
+    "display_name": "Fukuoka",
+    "description": "This mug represents the city of Fukuoka in Japan.",
+    "lat": 33.6251241,
+    "lng": 130.6180016,
+    "source_image": "IMG_7131.jpeg",
+    "confidence": 0.9,
+    "taken_at": null,
+    "created_at": "2026-04-06T06:57:28+00:00",
+    "updated_at": "2026-04-06T06:57:28+00:00"
+}

@@ -1,0 +1,18 @@
+{
+    "id": "kuching-malaysia-20260406-01",
+    "type": "city",
+    "venue": "",
+    "google_maps_url": null,
+    "city_key": "kuching-malaysia",
+    "city": "Kuching",
+    "country": "Malaysia",
+    "display_name": "Kuching, Malaysia",
+    "description": "A mug representing the city of Kuching in Malaysia.",
+    "lat": 1.5597561,
+    "lng": 110.345397,
+    "source_image": "IMG_7121.jpeg",
+    "confidence": 0.9,
+    "taken_at": null,
+    "created_at": "2026-04-06T06:33:45+00:00",
+    "updated_at": "2026-04-06T06:33:45+00:00"
+}

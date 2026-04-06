@@ -1,0 +1,18 @@
+{
+    "id": "guangzhou-china-20260406-01",
+    "type": "city",
+    "venue": "",
+    "google_maps_url": null,
+    "city_key": "guangzhou-china",
+    "city": "Guangzhou",
+    "country": "China",
+    "display_name": "Guangzhou",
+    "description": "A Starbucks city mug featuring the skyline of Guangzhou.",
+    "lat": 23.1288454,
+    "lng": 113.2590064,
+    "source_image": "IMG_7102.jpeg",
+    "confidence": 0.95,
+    "taken_at": null,
+    "created_at": "2026-04-06T06:32:33+00:00",
+    "updated_at": "2026-04-06T06:32:33+00:00"
+}

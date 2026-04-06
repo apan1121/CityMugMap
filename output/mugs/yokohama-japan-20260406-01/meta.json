@@ -1,0 +1,18 @@
+{
+    "id": "yokohama-japan-20260406-01",
+    "type": "city",
+    "venue": "",
+    "google_maps_url": null,
+    "city_key": "yokohama-japan",
+    "city": "Yokohama",
+    "country": "Japan",
+    "display_name": "Yokohama",
+    "description": "This mug represents the city of Yokohama, Japan.",
+    "lat": 35.4503381,
+    "lng": 139.6343802,
+    "source_image": "IMG_7138.jpeg",
+    "confidence": 0.95,
+    "taken_at": null,
+    "created_at": "2026-04-06T07:02:46+00:00",
+    "updated_at": "2026-04-06T07:02:46+00:00"
+}
