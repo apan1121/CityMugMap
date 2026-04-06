@@ -22,8 +22,10 @@ final class OpenAIClient
         $schema = [
             'type' => 'object',
             'additionalProperties' => false,
-            'required' => ['city', 'country', 'display_name', 'description', 'confidence'],
+            'required' => ['type', 'venue', 'city', 'country', 'display_name', 'description', 'confidence'],
             'properties' => [
+                'type' => ['type' => 'string', 'enum' => ['city', 'country', 'store', 'region']],
+                'venue' => ['type' => 'string'],
                 'city' => ['type' => 'string'],
                 'country' => ['type' => 'string'],
                 'display_name' => ['type' => 'string'],
@@ -38,10 +40,18 @@ final class OpenAIClient
                 'You analyze Starbucks city mug photos.',
                 'Return JSON only.',
                 'Identify the most likely city and country shown on the mug.',
+                'Always return city and country in English, regardless of what language appears on the mug.',
                 'If uncertain, still return your best guess and lower confidence.',
                 'If the city cannot be determined, return "unknown" for city.',
                 'Keep display_name short and natural.',
                 'Keep description to one concise sentence in English.',
+                '',
+                'Set the "type" field based on what the mug represents:',
+                '- "city": a standard city mug (most common case)',
+                '- "country": the mug represents an entire country, not a specific city; set city to the country name',
+                '- "store": a specific Starbucks store or venue edition (e.g. hotel, airport, shopping mall); set venue to the store/venue name in English',
+                '- "region": a geographic region or area that is not a specific city',
+                'Set "venue" to the store or venue name in English if type is "store", otherwise set it to an empty string.',
             ]),
             'input' => [
                 [

@@ -449,8 +449,7 @@
 
 .city-hover-label{
     transform: translate(-50%, -130%);
-    width: max-content;
-    max-width: 240px;
+    max-width: 200px;
     padding: 8px 12px;
     border-radius: 10px;
     background: rgba(255, 251, 244, 0.96);
@@ -460,6 +459,8 @@
     font-weight: 700;
     line-height: 1.3;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .status-pill{
@@ -589,7 +590,7 @@
     display: grid;
     grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
     width: string.unquote("min(1120px, 100%)");
-    max-height: string.unquote("min(88vh, 980px)");
+    height: string.unquote("min(88vh, 980px)");
     overflow: hidden;
     border-radius: 28px;
     background: #fffaf2;
@@ -600,7 +601,7 @@
     position: absolute;
     top: 16px;
     right: 16px;
-    z-index: 2;
+    z-index: 1000;
     width: 42px;
     height: 42px;
     border: 0;
@@ -612,19 +613,70 @@
 }
 
 .mug-modal-media{
-    min-height: 100%;
+    position: relative;
+    overflow: hidden;
     background: #d9cebb;
 }
 
 .mug-modal-image{
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 .mug-modal-content{
-    overflow: auto;
+    overflow-y: auto;
     padding: 34px 28px 30px;
+}
+
+.mug-modal-thumbs{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    gap: 8px;
+    padding: 12px 16px;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+    overflow-x: auto;
+    scrollbar-width: none;
+    &::-webkit-scrollbar{ display: none; }
+}
+
+.mug-modal-thumb{
+    flex-shrink: 0;
+    display: block;
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,0.3);
+    cursor: pointer;
+    opacity: 0.65;
+    transition: opacity 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+
+    &:hover{
+        opacity: 0.9;
+        transform: translateY(-2px);
+    }
+
+    &.is-active{
+        opacity: 1;
+        border-color: #fff;
+        transform: translateY(-2px);
+    }
+}
+
+.mug-modal-thumb-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .mug-modal-id{
@@ -673,6 +725,7 @@
 .mug-modal-geo-map{
     width: 100%;
     height: 240px;
+    cursor: default;
 }
 
 .mug-modal-geo-empty{
@@ -712,6 +765,176 @@
     color: #fff8ec;
     font-weight: 700;
     text-decoration: none;
+}
+
+.mug-marker{
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 50%;
+    background: #173221;
+    border: 3px solid #fff8ee;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.15s ease;
+
+    &:hover{
+        transform: scale(1.25);
+    }
+}
+
+.mug-cluster{
+    background: transparent;
+    border: 0;
+
+    &::before{
+        content: '';
+        position: absolute;
+        inset: -6px;
+        border-radius: 50%;
+        opacity: 0.22;
+        pointer-events: none;
+    }
+}
+
+.mug-cluster-inner{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 700;
+    border: 2.5px solid rgba(255, 255, 255, 0.7);
+}
+
+/* Lv1：≤5，青綠 */
+.mug-cluster--xs{
+    &::before{ background: radial-gradient(circle, #3ecfa0, transparent 68%); }
+    .mug-cluster-inner{
+        font-size: 11px;
+        background: radial-gradient(circle at 36% 30%, #62ddb0, #138a5e);
+        box-shadow: 0 0 0 2.5px rgba(19, 138, 94, 0.15), 0 2px 10px rgba(19, 138, 94, 0.32);
+    }
+}
+
+/* Lv2：6–10，草綠 */
+.mug-cluster--sm{
+    &::before{ background: radial-gradient(circle, #4aab78, transparent 68%); }
+    .mug-cluster-inner{
+        font-size: 12px;
+        background: radial-gradient(circle at 36% 30%, #5ec98a, #1a6e40);
+        box-shadow: 0 0 0 3px rgba(26, 110, 64, 0.16), 0 3px 13px rgba(26, 110, 64, 0.36);
+    }
+}
+
+/* Lv3：11–15，琥珀金 */
+.mug-cluster--md{
+    &::before{ background: radial-gradient(circle, #eaaa38, transparent 68%); }
+    .mug-cluster-inner{
+        font-size: 13px;
+        background: radial-gradient(circle at 36% 30%, #f2c060, #c07818);
+        box-shadow: 0 0 0 3.5px rgba(192, 120, 24, 0.18), 0 4px 16px rgba(192, 120, 24, 0.42);
+    }
+}
+
+/* Lv4：16–20，橘 */
+.mug-cluster--lg{
+    &::before{ background: radial-gradient(circle, #e87840, transparent 68%); }
+    .mug-cluster-inner{
+        font-size: 13px;
+        background: radial-gradient(circle at 36% 30%, #f09458, #c04a10);
+        box-shadow: 0 0 0 4px rgba(192, 74, 16, 0.18), 0 4px 17px rgba(192, 74, 16, 0.43);
+    }
+}
+
+/* Lv5：21–30，橘紅 */
+.mug-cluster--xl{
+    &::before{ background: radial-gradient(circle, #d85838, transparent 68%); }
+    .mug-cluster-inner{
+        font-size: 14px;
+        background: radial-gradient(circle at 36% 30%, #e87060, #b02a18);
+        box-shadow: 0 0 0 4.5px rgba(176, 42, 24, 0.18), 0 5px 20px rgba(176, 42, 24, 0.45);
+    }
+}
+
+/* Lv6：30+，深紅熱點 */
+.mug-cluster--xxl{
+    &::before{ background: radial-gradient(circle, #c83030, transparent 68%); }
+    .mug-cluster-inner{
+        font-size: 15px;
+        background: radial-gradient(circle at 36% 30%, #e05050, #8a1414);
+        box-shadow: 0 0 0 5px rgba(138, 20, 20, 0.2), 0 6px 24px rgba(138, 20, 20, 0.5);
+    }
+}
+
+.json-viewer-overlay{
+    position: fixed;
+    inset: 0;
+    z-index: 1400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    background: rgba(0, 0, 0, 0.72);
+}
+
+.json-viewer-modal{
+    display: flex;
+    flex-direction: column;
+    width: string.unquote("min(860px, 100%)");
+    max-height: 82vh;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #0d1117;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+}
+
+.json-viewer-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: #161b22;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
+}
+
+.json-viewer-title{
+    color: #8b949e;
+    font-size: 13px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    letter-spacing: 0.04em;
+}
+
+.json-viewer-close{
+    width: 28px;
+    height: 28px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: #8b949e;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    &:hover{
+        background: rgba(255, 255, 255, 0.08);
+        color: #e6edf3;
+    }
+}
+
+.json-viewer-body{
+    flex: 1;
+    overflow: auto;
+    margin: 0;
+    padding: 20px 24px;
+    color: #e6edf3;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    white-space: pre;
+    tab-size: 2;
 }
 
 @media (max-width: 1080px){
@@ -787,11 +1010,12 @@
 
     .mug-modal{
         grid-template-columns: 1fr;
-        max-height: 92vh;
+        grid-template-rows: 42vh 1fr;
+        height: 92vh;
     }
 
     .mug-modal-media{
-        max-height: 42vh;
+        /* height is set by grid-template-rows */
     }
 
     .list-grid{

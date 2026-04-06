@@ -83,7 +83,10 @@ $openAI = new OpenAIClient(
     defined('OPENAI_MODEL') ? OPENAI_MODEL : 'gpt-4o-mini',
     defined('OPENAI_API_BASE') ? OPENAI_API_BASE : 'https://api.openai.com/v1'
 );
-$geoService = new GeoService($userAgent);
+$geoService = new GeoService(
+    $userAgent,
+    defined('GOOGLE_PLACES_API_KEY') ? GOOGLE_PLACES_API_KEY : ''
+);
 
 $files = FileService::listImageFiles($inputDir);
 $files = filterFiles($files, $targetFile);
@@ -134,6 +137,8 @@ foreach ($files as $sourcePath) {
         $analysis = resolveAnalysis($sourceFileName, $sourcePath, $overrides, $openAI);
         if (!empty($analysis['_save_override'])) {
             $overrides[$sourceFileName] = [
+                'type' => $analysis['type'] ?? 'city',
+                'venue' => $analysis['venue'] ?? '',
                 'city' => $analysis['city'],
                 'country' => $analysis['country'],
                 'display_name' => $analysis['display_name'],
@@ -145,7 +150,9 @@ foreach ($files as $sourcePath) {
             logMessage($logPrefix, sprintf('Saved manual override: %s', $overridePath));
         }
         logMessage($logPrefix, sprintf(
-            'OpenAI result: city="%s", country="%s", display_name="%s", confidence=%.2f',
+            'OpenAI result: type="%s", venue="%s", city="%s", country="%s", display_name="%s", confidence=%.2f',
+            $analysis['type'] ?? 'city',
+            $analysis['venue'] ?? '',
             $analysis['city'],
             $analysis['country'],
             $analysis['display_name'],
@@ -153,40 +160,61 @@ foreach ($files as $sourcePath) {
         ));
 
         logMessage($logPrefix, 'Step 3/7 Query geolocation and boundary from OpenStreetMap.');
-        $geoCountry = normalizeLookupCountry((string) $analysis['country']);
-        logMessage($logPrefix, sprintf(
-            'Geocode query: city="%s", country="%s"',
-            $analysis['city'],
-            $geoCountry !== '' ? $geoCountry : '(empty)'
-        ));
-        $geo = $geoService->lookupCity($analysis['city'], $geoCountry);
-        if (!empty($geo['resolved_city']) && strtolower($analysis['city']) === 'unknown') {
-            $analysis['city'] = sanitizeTextValue((string) $geo['resolved_city']);
+        $isStore    = ($analysis['type'] ?? 'city') === 'store';
+        $venue      = trim((string) ($analysis['venue'] ?? ''));
+        $overrideLat = isset($analysis['lat']) ? (float) $analysis['lat'] : null;
+        $overrideLng = isset($analysis['lng']) ? (float) $analysis['lng'] : null;
+
+        if ($isStore && $overrideLat !== null && $overrideLng !== null) {
+            // Use coordinates from Google Maps override directly — no Nominatim needed
+            logMessage($logPrefix, sprintf(
+                'Store type with Google Maps coords: lat=%s, lng=%s. Skipping geo lookup.',
+                $overrideLat,
+                $overrideLng
+            ));
+            $geo = [
+                'lat'              => $overrideLat,
+                'lng'              => $overrideLng,
+                'geojson'          => null,
+                'resolved_city'    => (string) ($analysis['city'] ?? ''),
+                'resolved_country' => (string) ($analysis['country'] ?? ''),
+            ];
+        } else {
+            $geoCountry = normalizeLookupCountry((string) $analysis['country']);
+            logMessage($logPrefix, sprintf(
+                'Geocode query: city="%s", country="%s"',
+                $analysis['city'],
+                $geoCountry !== '' ? $geoCountry : '(empty)'
+            ));
+            $geo = $geoService->lookupCity($analysis['city'], $geoCountry);
+        }
+        $resolvedCity    = (string) ($geo['resolved_city'] ?? '');
+        $resolvedCountry = (string) ($geo['resolved_country'] ?? '');
+
+        if (!empty($resolvedCity) && isAsciiOnly($resolvedCity) && strtolower($analysis['city']) === 'unknown') {
+            $analysis['city'] = sanitizeTextValue($resolvedCity);
         }
         if (
-            !empty($geo['resolved_country'])
-            && (
-                trim((string) $analysis['country']) === ''
-                || strtolower((string) $analysis['country']) === 'unknown'
-            )
+            !empty($resolvedCountry)
+            && isAsciiOnly($resolvedCountry)
+            && (trim((string) $analysis['country']) === '' || strtolower((string) $analysis['country']) === 'unknown')
         ) {
-            $analysis['country'] = sanitizeTextValue((string) $geo['resolved_country']);
+            $analysis['country'] = sanitizeTextValue($resolvedCountry);
+        }
+
+        if (!isAsciiOnly($analysis['city'])) {
+            logMessage($logPrefix, sprintf('Non-ASCII city detected after geo: "%s". Treating as unknown.', $analysis['city']));
+            $analysis['city'] = 'unknown';
+        }
+        if (!isAsciiOnly($analysis['country'])) {
+            logMessage($logPrefix, sprintf('Non-ASCII country detected after geo: "%s". Treating as unknown.', $analysis['country']));
+            $analysis['country'] = 'unknown';
         }
         if (!empty($analysis['_manual_city_input'])) {
-            $resolvedCity = normalizePlaceName((string) ($geo['resolved_city'] ?? 'unknown'));
             $resolvedCountry = normalizePlaceName((string) ($geo['resolved_country'] ?? 'unknown'));
 
-            if ($resolvedCity !== 'unknown') {
-                if (strcasecmp($analysis['city'], $resolvedCity) !== 0) {
-                    logMessage($logPrefix, sprintf(
-                        'Manual city corrected by geocoder: "%s" -> "%s"',
-                        $analysis['city'],
-                        $resolvedCity
-                    ));
-                }
-                $analysis['city'] = $resolvedCity;
-            }
-
+            // Keep the user's city name as-is — they already confirmed it.
+            // Only fill in country from geocoder if still unknown.
             if ($resolvedCountry !== 'unknown') {
                 $analysis['country'] = $resolvedCountry;
             }
@@ -208,7 +236,53 @@ foreach ($files as $sourcePath) {
         ));
 
         logMessage($logPrefix, 'Step 4/7 Build item id and destination folder.');
-        $cityKey = buildCityKey($analysis['city'], $analysis['country']);
+        // Store type: use venue slug as unique key so it never groups with city items
+        $cityKey = $isStore && $venue !== ''
+            ? 'store-' . FileService::slugify($venue)
+            : buildCityKey($analysis['city'], $analysis['country']);
+
+        if ($cityKey === 'unknown-unknown') {
+            logMessage($logPrefix, sprintf(
+                'City key resolved to unknown-unknown (detected: city="%s", country="%s"). Manual input required.',
+                $analysis['city'],
+                $analysis['country']
+            ));
+            $manualCity = promptInput(sprintf('Enter English city name for %s', $sourceFileName));
+            if ($manualCity === '') {
+                throw new RuntimeException(sprintf(
+                    'City is required. Review the image and run again: file://%s',
+                    $sourcePath
+                ));
+            }
+            $analysis['city'] = normalizePlaceName($manualCity);
+            $analysis['country'] = '';
+
+            logMessage($logPrefix, sprintf('Re-querying geolocation with manual city: "%s"', $analysis['city']));
+            $geo = $geoService->lookupCity($analysis['city'], '');
+            if (!empty($geo['resolved_city'])) {
+                $analysis['city'] = sanitizeTextValue((string) $geo['resolved_city']);
+            }
+            if (!empty($geo['resolved_country'])) {
+                $analysis['country'] = sanitizeTextValue((string) $geo['resolved_country']);
+            }
+            $analysis['display_name'] = 'Starbucks ' . $analysis['city'] . ' Mug';
+
+            $overrides[$sourceFileName] = [
+                'type'         => $analysis['type'] ?? 'city',
+                'venue'        => $analysis['venue'] ?? '',
+                'city'         => $analysis['city'],
+                'country'      => $analysis['country'],
+                'display_name' => $analysis['display_name'],
+                'description'  => $analysis['description'],
+                'confidence'   => 1.0,
+            ];
+            JsonService::write($overridePath, $overrides);
+            logMessage($logPrefix, sprintf('Saved override for %s to prevent future re-prompt.', $sourceFileName));
+
+            $cityKey = buildCityKey($analysis['city'], $analysis['country']);
+            logMessage($logPrefix, sprintf('Corrected city_key: %s', $cityKey));
+        }
+
         $itemId = buildItemId($cityKey, $mainItems);
         $itemDir = $mugOutputDir . '/' . $itemId;
         $cityDir = $cityOutputDir . '/' . $cityKey;
@@ -234,6 +308,9 @@ foreach ($files as $sourcePath) {
 
         $meta = [
             'id' => $itemId,
+            'type' => $analysis['type'] ?? 'city',
+            'venue' => $analysis['venue'] ?? '',
+            'google_maps_url' => $analysis['google_maps_url'] ?? null,
             'city_key' => $cityKey,
             'city' => $analysis['city'],
             'country' => $analysis['country'],
@@ -261,6 +338,9 @@ foreach ($files as $sourcePath) {
         logMessage($logPrefix, 'Step 6/7 Update main index and processed file registry.');
         $mainItems[] = [
             'id' => $itemId,
+            'type' => $analysis['type'] ?? 'city',
+            'venue' => $analysis['venue'] ?? '',
+            'google_maps_url' => $analysis['google_maps_url'] ?? null,
             'city_key' => $cityKey,
             'city' => $analysis['city'],
             'country' => $analysis['country'],
@@ -279,19 +359,30 @@ foreach ($files as $sourcePath) {
         ];
 
         logMessage($logPrefix, sprintf('Indexed source file: %s -> %s', $sourceFileName, $itemId));
+
+        // Write immediately after each file so interruption doesn't lose progress
+        logMessage($logPrefix, 'Step 6b/7 Persist progress to disk.');
+        $sortedItems = $mainItems;
+        usort($sortedItems, static function (array $a, array $b): int {
+            return strcmp((string) ($a['id'] ?? ''), (string) ($b['id'] ?? ''));
+        });
+        JsonService::write($mainJsonPath, $sortedItems);
+        JsonService::write($processedPath, $processedFiles);
+
         $processedCount++;
         logMessage($logPrefix, sprintf(
             'Finished %s in %.2fs',
             $sourceFileName,
             microtime(true) - $fileStartedAt
         ));
+        echo $itemId . "\n";
     } catch (Throwable $e) {
         $failedCount++;
         fwrite(STDERR, sprintf("%s Failed to process %s: %s\n", $logPrefix, $sourceFileName, $e->getMessage()));
     }
 }
 
-logMessage($logPrefix, 'Step 7/7 Write output/main.json and output/processed_files.json.');
+logMessage($logPrefix, 'Step 7/7 Final write of output/main.json and output/processed_files.json.');
 usort($mainItems, static function (array $a, array $b): int {
     return strcmp((string) ($a['id'] ?? ''), (string) ($b['id'] ?? ''));
 });
@@ -443,7 +534,9 @@ function resolveAnalysis(string $sourceFileName, string $sourcePath, array $over
         $override = $overrides[$sourceFileName];
         logMessage('[CityMug]', sprintf('Manual override found for %s. Skip OpenAI analysis.', $sourceFileName));
 
-        return [
+        $overrideResult = [
+            'type' => (string) ($override['type'] ?? 'city'),
+            'venue' => (string) ($override['venue'] ?? ''),
             'city' => normalizePlaceName((string) ($override['city'] ?? 'unknown')),
             'country' => normalizePlaceName((string) ($override['country'] ?? 'unknown')),
             'display_name' => (string) ($override['display_name'] ?? 'Starbucks City Mug'),
@@ -451,12 +544,27 @@ function resolveAnalysis(string $sourceFileName, string $sourcePath, array $over
             'confidence' => (float) ($override['confidence'] ?? 1.0),
             'taken_at' => $override['taken_at'] ?? null,
         ];
+
+        // Pass through Google Maps coordinates if present
+        if (isset($override['lat'])) {
+            $overrideResult['lat'] = (float) $override['lat'];
+        }
+        if (isset($override['lng'])) {
+            $overrideResult['lng'] = (float) $override['lng'];
+        }
+        if (isset($override['google_maps_url'])) {
+            $overrideResult['google_maps_url'] = (string) $override['google_maps_url'];
+        }
+
+        return $overrideResult;
     }
 
     $analysis = $openAI->analyzeMugImage($sourcePath);
     logMessage('[CityMug]', sprintf(
-        'OpenAI raw analysis for %s: city="%s", country="%s", display_name="%s", confidence=%s',
+        'OpenAI raw analysis for %s: type="%s", venue="%s", city="%s", country="%s", display_name="%s", confidence=%s',
         $sourceFileName,
+        (string) ($analysis['type'] ?? 'city'),
+        (string) ($analysis['venue'] ?? ''),
         normalizePlaceName((string) ($analysis['city'] ?? 'unknown')),
         normalizePlaceName((string) ($analysis['country'] ?? 'unknown')),
         sanitizeTextValue($analysis['display_name'] ?? 'Starbucks City Mug'),
@@ -464,6 +572,8 @@ function resolveAnalysis(string $sourceFileName, string $sourcePath, array $over
     ));
 
     $normalized = [
+        'type' => (string) ($analysis['type'] ?? 'city'),
+        'venue' => trim((string) ($analysis['venue'] ?? '')),
         'city' => normalizePlaceName((string) ($analysis['city'] ?? 'unknown')),
         'country' => normalizePlaceName((string) ($analysis['country'] ?? 'unknown')),
         'display_name' => sanitizeTextValue($analysis['display_name'] ?? 'Starbucks City Mug'),
@@ -518,12 +628,71 @@ function shouldPromptForManualCity(array $analysis): bool
 {
     $city = strtolower(trim((string) ($analysis['city'] ?? 'unknown')));
 
-    return $city === '' || $city === 'unknown';
+    if ($city === '' || $city === 'unknown') {
+        return true;
+    }
+
+    // 含非 ASCII（日文、泰文、中文等）視為無法辨識
+    if (!isAsciiOnly($city)) {
+        return true;
+    }
+
+    return false;
+}
+
+function isAsciiOnly(string $value): bool
+{
+    return (bool) preg_match('/^[\x00-\x7F]+$/', $value);
 }
 
 function promptForManualAnalysis(string $sourceFileName, string $sourcePath, array $analysis): array
 {
-    $city = promptInput(sprintf('Enter city for %s', $sourceFileName));
+    global $geoService;
+
+    $typeInput = promptInput(sprintf('Type for %s (city/country/store/region)', $sourceFileName), 'city');
+    $type = in_array($typeInput, ['city', 'country', 'store', 'region'], true) ? $typeInput : 'city';
+
+    if ($type === 'store') {
+        $mapsUrl = promptInput('Google Maps URL');
+        if ($mapsUrl === '') {
+            throw new RuntimeException(sprintf(
+                'Google Maps URL is required for store type. Run again: file://%s',
+                $sourcePath
+            ));
+        }
+
+        logMessage('[CityMug]', 'Resolving Google Maps URL...');
+        $mapsData = $geoService->resolveGoogleMapsUrl($mapsUrl);
+        logMessage('[CityMug]', sprintf('  Name:    %s', $mapsData['name']));
+        logMessage('[CityMug]', sprintf('  GPS:     lat=%s, lng=%s', $mapsData['lat'], $mapsData['lng']));
+        logMessage('[CityMug]', sprintf('  Area:    %s, %s', $mapsData['resolved_city'], $mapsData['resolved_country']));
+        echo "--- Confirm / edit each field (Enter to keep) ---\n";
+
+        $venue       = promptInput('Venue name (English)', $mapsData['name']);
+        $city        = promptInput('City', $mapsData['resolved_city']);
+        $country     = promptInput('Country', $mapsData['resolved_country']);
+        $displayName = promptInput('Display name', buildStoreDisplayName($venue));
+        $description = promptInput('Description', trim((string) ($analysis['description'] ?? '')));
+
+        logMessage('[CityMug]', sprintf('Store confirmed: venue="%s", city="%s", country="%s"', $venue, $city, $country));
+
+        return [
+            'type'             => 'store',
+            'venue'            => $venue,
+            'google_maps_url'  => $mapsUrl,
+            'lat'              => $mapsData['lat'],
+            'lng'              => $mapsData['lng'],
+            'city'             => $city,
+            'country'          => $country,
+            'display_name'     => $displayName,
+            'description'      => $description,
+            'confidence'       => 1.0,
+            'taken_at'         => $analysis['taken_at'] ?? null,
+            '_save_override'   => true,
+        ];
+    }
+
+    $city = promptInput(sprintf('City for %s', $sourceFileName));
     if ($city === '') {
         throw new RuntimeException(sprintf(
             'City is required. Review the image and run again: file://%s',
@@ -531,20 +700,19 @@ function promptForManualAnalysis(string $sourceFileName, string $sourcePath, arr
         ));
     }
 
-    logMessage('[CityMug]', sprintf(
-        'Manual city confirmed: city="%s". Country and coordinates will be resolved automatically.',
-        $city
-    ));
+    logMessage('[CityMug]', sprintf('Manual city confirmed: "%s".', $city));
 
     return [
-        'city' => normalizePlaceName($city),
-        'country' => '',
-        'display_name' => 'Starbucks ' . normalizePlaceName($city) . ' Mug',
-        'description' => trim((string) ($analysis['description'] ?? '')),
-        'confidence' => 1.0,
-        'taken_at' => $analysis['taken_at'] ?? null,
+        'type'               => $type,
+        'venue'              => '',
+        'city'               => normalizePlaceName($city),
+        'country'            => '',
+        'display_name'       => 'Starbucks ' . normalizePlaceName($city) . ' Mug',
+        'description'        => trim((string) ($analysis['description'] ?? '')),
+        'confidence'         => 1.0,
+        'taken_at'           => $analysis['taken_at'] ?? null,
         '_manual_city_input' => true,
-        '_save_override' => true,
+        '_save_override'     => true,
     ];
 }
 
@@ -568,6 +736,15 @@ function promptInput(string $label, string $default = ''): string
     $value = trim($value);
 
     return $value !== '' ? $value : $default;
+}
+
+function buildStoreDisplayName(string $venue): string
+{
+    if (stripos($venue, 'starbucks') === 0) {
+        return $venue;
+    }
+
+    return 'Starbucks ' . $venue;
 }
 
 function buildCityKey(string $city, string $country): string

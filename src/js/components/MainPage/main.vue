@@ -113,6 +113,8 @@
                             :src="itemImageUrl(item)"
                             :alt="`${item.display_name} - ${item.city}, ${item.country}`"
                             class="mug-card-image"
+                            loading="lazy"
+                            @error="onImgError"
                         >
                     </div>
                     <div class="mug-card-body">
@@ -133,8 +135,8 @@
             class="mug-modal-overlay"
             @click.self="closeModal"
         >
-            <div class="mug-modal">
-                <button type="button" class="mug-modal-close" @click="closeModal">
+            <div class="mug-modal" role="dialog" aria-modal="true" aria-labelledby="mug-modal-title">
+                <button ref="modalCloseBtn" type="button" class="mug-modal-close" @click="closeModal">
                     ×
                 </button>
 
@@ -144,11 +146,28 @@
                         :alt="`${modalItem.display_name} - ${modalItem.city}, ${modalItem.country}`"
                         class="mug-modal-image"
                     >
+                    <div v-if="modalGroup.length > 1" class="mug-modal-thumbs">
+                        <button
+                            v-for="item in modalGroup"
+                            :key="item.id"
+                            type="button"
+                            class="mug-modal-thumb"
+                            :class="{ 'is-active': item.id === modalId }"
+                            @click="switchModalItem(item.id)"
+                        >
+                            <img
+                                :src="itemImageUrl(item)"
+                                :alt="item.display_name"
+                                class="mug-modal-thumb-img"
+                                loading="lazy"
+                            >
+                        </button>
+                    </div>
                 </div>
 
                 <div class="mug-modal-content">
                     <p class="mug-modal-id">{{ modalItem.id }}</p>
-                    <h2 class="mug-modal-title">{{ modalItem.display_name }}</h2>
+                    <h2 id="mug-modal-title" class="mug-modal-title">{{ modalItem.display_name }}</h2>
                     <p class="mug-modal-location">{{ modalItem.city }}, {{ modalItem.country }}</p>
                     <p class="mug-modal-desc">{{ modalItem.description }}</p>
 
@@ -182,32 +201,55 @@
                     </div>
 
                     <div class="mug-modal-links">
-                        <a
+                        <button
                             v-if="modalItem"
-                            :href="itemMetaUrl(modalItem)"
+                            type="button"
                             class="mug-modal-link"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            @click="openJsonViewer(itemMetaUrl(modalItem), 'meta.json')"
                         >
                             查看 meta.json
-                        </a>
-                        <a
+                        </button>
+                        <button
                             v-if="modalItem"
-                            :href="itemBoundaryUrl(modalItem)"
+                            type="button"
                             class="mug-modal-link"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            @click="openJsonViewer(itemBoundaryUrl(modalItem), 'boundary.geojson')"
                         >
                             查看 boundary.geojson
-                        </a>
+                        </button>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div
+            v-if="jsonViewerVisible"
+            class="json-viewer-overlay"
+            @click.self="closeJsonViewer"
+        >
+            <div class="json-viewer-modal" role="dialog" aria-modal="true" :aria-label="jsonViewerTitle">
+                <div class="json-viewer-header">
+                    <span class="json-viewer-title">{{ jsonViewerTitle }}</span>
+                    <button type="button" class="json-viewer-close" @click="closeJsonViewer">×</button>
+                </div>
+                <pre class="json-viewer-body">{{ jsonViewerContent }}</pre>
             </div>
         </div>
     </main>
 </template>
 
 <script>
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import 'leaflet.markercluster';
+import 'leaflet.markercluster/dist/MarkerCluster.css';
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+    iconUrl: './dist/img/map/marker-icon.png',
+    iconRetinaUrl: './dist/img/map/marker-icon-2x.png',
+    shadowUrl: './dist/img/map/marker-shadow.png',
+});
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { linkRegister } from 'lib/common/util';
 
 export default {
@@ -216,6 +258,7 @@ export default {
         return {
             activeView: 'map',
             searchKeyword: '',
+            debouncedKeyword: '',
             siteLogoUrl: './dist/img/coffee_logo.png',
             items: [],
             modalId: '',
@@ -234,11 +277,15 @@ export default {
             locationStatus: '尚未定位',
             geoJsonCache: {},
             resizeHandler: null,
+            jsonViewerVisible: false,
+            jsonViewerTitle: '',
+            jsonViewerContent: '',
+            modalGroup: [],
         };
     },
     computed: {
         filteredItems(){
-            const keyword = this.searchKeyword.toLowerCase();
+            const keyword = this.debouncedKeyword.toLowerCase();
             if (!keyword) {
                 return this.items;
             }
@@ -265,6 +312,12 @@ export default {
         },
     },
     watch: {
+        searchKeyword(val){
+            clearTimeout(this._keywordTimer);
+            this._keywordTimer = setTimeout(() => {
+                this.debouncedKeyword = val;
+            }, 200);
+        },
         filteredItems(){
             this.renderMapItems();
         },
@@ -286,11 +339,49 @@ export default {
         await this.loadItems();
         await this.initLeafletMap();
         this.renderMapItems();
+        this._escHandler = (e) => {
+            if (e.key !== 'Escape') {
+                return;
+            }
+            if (this.jsonViewerVisible) {
+                this.closeJsonViewer();
+            } else if (this.modalId) {
+                this.closeModal();
+            }
+        };
+        this._tabHandler = (e) => {
+            if (e.key !== 'Tab' || !this.modalId) {
+                return;
+            }
+            const modal = this.$el.querySelector('.mug-modal');
+            if (!modal) {
+                return;
+            }
+            const focusable = Array.from(modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'));
+            if (focusable.length === 0) {
+                return;
+            }
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        };
+        document.addEventListener('keydown', this._escHandler);
+        document.addEventListener('keydown', this._tabHandler);
     },
     beforeUnmount(){
         if (this.resizeHandler) {
             window.removeEventListener('resize', this.resizeHandler);
         }
+        document.removeEventListener('keydown', this._escHandler);
+        document.removeEventListener('keydown', this._tabHandler);
+        clearTimeout(this._keywordTimer);
+        clearTimeout(this._hoverTimer);
 
         this.destroyModalMap();
 
@@ -310,7 +401,7 @@ export default {
         },
         async loadItems(){
             try {
-                const response = await fetch('./output/main.json');
+                const response = await fetch(this.withTs('./output/main.json'));
                 const data = await response.json();
                 this.items = Array.isArray(data) ? data : [];
             } catch (error) {
@@ -319,8 +410,7 @@ export default {
             }
         },
         async initLeafletMap(){
-            const L = await this.waitForLeaflet();
-            if (!L || !this.$refs.mapBox) {
+            if (!this.$refs.mapBox) {
                 return;
             }
 
@@ -330,6 +420,7 @@ export default {
                 zoomAnimation: false,
                 fadeAnimation: false,
                 markerZoomAnimation: false,
+                wheelPxPerZoomLevel: 1000,
             }).setView([18, 120], 3);
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -340,7 +431,33 @@ export default {
                 position: 'bottomright',
             }).addTo(this.map);
 
-            this.markerLayerGroup = L.featureGroup().addTo(this.map);
+            if (L.markerClusterGroup) {
+                const CLUSTER_LEVELS = [
+                    { max: 5,        level: 'xs',  size: 34 },
+                    { max: 10,       level: 'sm',  size: 42 },
+                    { max: 15,       level: 'md',  size: 50 },
+                    { max: 20,       level: 'lg',  size: 58 },
+                    { max: 30,       level: 'xl',  size: 68 },
+                    { max: Infinity, level: 'xxl', size: 80 },
+                ];
+
+                this.markerLayerGroup = L.markerClusterGroup({
+                    maxClusterRadius: 50,
+                    showCoverageOnHover: false,
+                    iconCreateFunction(cluster){
+                        const count = cluster.getChildCount();
+                        const { level, size } = CLUSTER_LEVELS.find(({ max }) => count <= max);
+                        return L.divIcon({
+                            className: `mug-cluster mug-cluster--${level}`,
+                            html: `<div class="mug-cluster-inner">${count}</div>`,
+                            iconSize: [size, size],
+                            iconAnchor: [size / 2, size / 2],
+                        });
+                    },
+                }).addTo(this.map);
+            } else {
+                this.markerLayerGroup = L.featureGroup().addTo(this.map);
+            }
             this.map.on('zoomstart movestart', () => {
                 this.clearHoverLabel();
                 this.clearHoverBoundary();
@@ -365,55 +482,49 @@ export default {
                 }
             }, 300);
         },
-        waitForLeaflet(){
-            return new Promise((resolve) => {
-                const maxTries = 80;
-                let tries = 0;
-                const timer = setInterval(() => {
-                    tries += 1;
-                    if (window.L) {
-                        clearInterval(timer);
-                        resolve(window.L);
-                        return;
-                    }
-
-                    if (tries >= maxTries) {
-                        clearInterval(timer);
-                        resolve(null);
-                    }
-                }, 100);
-            });
-        },
         renderMapItems(){
             if (!this.mapReady || !this.markerLayerGroup) {
                 return;
             }
 
-            const L = window.L;
             this.markerLayerGroup.clearLayers();
 
+            // 按 city_key 分組，每個城市只放一個 marker
+            const cityGroups = {};
             this.filteredItems.forEach((item) => {
-                const marker = L.circleMarker([Number(item.lat), Number(item.lng)], {
-                    radius: 9,
-                    color: '#fff8ee',
-                    weight: 3,
-                    fillColor: '#173221',
-                    fillOpacity: 1,
+                if (!cityGroups[item.city_key]) {
+                    cityGroups[item.city_key] = [];
+                }
+                cityGroups[item.city_key].push(item);
+            });
+
+            Object.values(cityGroups).forEach((group) => {
+                const rep = group[0];
+                const marker = L.marker([Number(rep.lat), Number(rep.lng)], {
+                    icon: L.divIcon({
+                        className: 'mug-marker',
+                        iconSize: [20, 20],
+                        iconAnchor: [10, 10],
+                    }),
                 });
 
                 marker.on('mouseover', () => {
-                    this.showHoverLabel(item);
-                    this.previewBoundary(item.id);
+                    this.showHoverLabel(rep);
+                    clearTimeout(this._hoverTimer);
+                    this._hoverTimer = setTimeout(() => {
+                        this.previewBoundary(rep.id);
+                    }, 150);
                 });
 
                 marker.on('mouseout', () => {
+                    clearTimeout(this._hoverTimer);
                     this.clearHoverLabel();
                     this.clearHoverBoundary();
                 });
 
                 marker.on('click', () => {
                     this.clearHoverLabel();
-                    this.openItemModal(item.id);
+                    this.openCityModal(group);
                 });
 
                 this.markerLayerGroup.addLayer(marker);
@@ -445,21 +556,54 @@ export default {
                 }, 50);
             }
         },
+        async openCityModal(group){
+            this.modalGroup = group;
+            await this.openItemModal(group[0].id);
+        },
         async openItemModal(itemId){
+            this._lastFocusedEl = document.activeElement;
             this.modalId = itemId;
+            await this.$nextTick();
+            const overlay = this.$el.querySelector('.mug-modal-overlay');
+            if (overlay) disableBodyScroll(overlay);
+            if (this.$refs.modalCloseBtn) {
+                this.$refs.modalCloseBtn.focus();
+            }
+            await this.loadModalGeoJson(itemId);
+            await this.highlightBoundary(itemId);
+        },
+        async switchModalItem(itemId){
+            this.modalId = itemId;
+            this.modalGeoStatus = '載入 GeoJSON 中...';
+            this.destroyModalMap();
             await this.loadModalGeoJson(itemId);
             await this.highlightBoundary(itemId);
         },
         closeModal(){
+            const overlay = this.$el.querySelector('.mug-modal-overlay');
+            if (overlay) enableBodyScroll(overlay);
             this.modalId = '';
+            this.modalGroup = [];
             this.modalGeoStatus = '載入 GeoJSON 中...';
             this.clearBoundaryHighlight();
             this.destroyModalMap();
+            if (this._lastFocusedEl) {
+                this._lastFocusedEl.focus();
+                this._lastFocusedEl = null;
+            }
         },
         async loadModalGeoJson(itemId){
             const item = this.items.find((row) => row.id === itemId);
             if (!item) {
                 this.modalGeoStatus = '沒有可用的 GeoJSON';
+                return;
+            }
+
+            // Store-type mugs have a precise GPS point, no city boundary
+            if (item.type === 'store') {
+                this.modalGeoStatus = 'ready';
+                await this.$nextTick();
+                this.renderModalMap(item, null);
                 return;
             }
 
@@ -484,7 +628,7 @@ export default {
                 return this.geoJsonCache[boundaryPath];
             }
 
-            const response = await fetch(`./${boundaryPath}`);
+            const response = await fetch(this.withTs(`./${boundaryPath}`));
             const geojson = await response.json();
             this.geoJsonCache[boundaryPath] = geojson;
 
@@ -496,7 +640,6 @@ export default {
                 return;
             }
 
-            const L = window.L;
             const geojson = await this.fetchGeoJson(this.itemBoundaryPath(item));
 
             this.clearBoundaryHighlight();
@@ -511,17 +654,6 @@ export default {
                     fillOpacity: 0.22,
                 },
             }).addTo(this.map);
-
-            const bounds = this.boundaryLayer.getBounds();
-            if (bounds.isValid()) {
-                this.map.fitBounds(bounds.pad(0.18), {
-                    animate: false,
-                });
-            } else {
-                this.map.setView([Number(item.lat), Number(item.lng)], 7, {
-                    animate: false,
-                });
-            }
 
             this.highlightedId = itemId;
         },
@@ -544,7 +676,6 @@ export default {
             }
 
             try {
-                const L = window.L;
                 const geojson = await this.fetchGeoJson(this.itemBoundaryPath(item));
                 if (!this.hasDrawableGeometry(geojson)) {
                     return;
@@ -576,7 +707,6 @@ export default {
                 return;
             }
 
-            const L = window.L;
             this.clearHoverLabel();
             this.hoverLabelMarker = L.marker([Number(item.lat), Number(item.lng)], {
                 interactive: false,
@@ -605,7 +735,6 @@ export default {
                 .replace(/'/g, '&#39;');
         },
         renderModalMap(item, geojson){
-            const L = window.L;
             if (!L || !this.$refs.modalMapBox) {
                 return;
             }
@@ -614,8 +743,12 @@ export default {
                 this.modalMap = L.map(this.$refs.modalMapBox, {
                     zoomControl: false,
                     attributionControl: false,
-                    dragging: true,
+                    dragging: false,
                     scrollWheelZoom: false,
+                    doubleClickZoom: false,
+                    touchZoom: false,
+                    boxZoom: false,
+                    keyboard: false,
                 });
 
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -625,22 +758,37 @@ export default {
 
             if (this.modalBoundaryLayer) {
                 this.modalMap.removeLayer(this.modalBoundaryLayer);
+                this.modalBoundaryLayer = null;
             }
 
-            this.modalBoundaryLayer = L.geoJSON(geojson, {
-                style: {
-                    color: '#9f5227',
-                    weight: 2,
-                    fillColor: '#d8a56d',
-                    fillOpacity: 0.24,
-                },
-            }).addTo(this.modalMap);
+            if (geojson) {
+                this.modalBoundaryLayer = L.geoJSON(geojson, {
+                    style: {
+                        color: '#9f5227',
+                        weight: 2,
+                        fillColor: '#d8a56d',
+                        fillOpacity: 0.24,
+                    },
+                }).addTo(this.modalMap);
 
-            const bounds = this.modalBoundaryLayer.getBounds();
-            if (bounds.isValid()) {
-                this.modalMap.fitBounds(bounds.pad(0.18));
+                const bounds = this.modalBoundaryLayer.getBounds();
+                if (bounds.isValid()) {
+                    this.modalMap.fitBounds(bounds.pad(0.18));
+                } else {
+                    this.modalMap.setView([Number(item.lat), Number(item.lng)], 7);
+                }
             } else {
-                this.modalMap.setView([Number(item.lat), Number(item.lng)], 7);
+                // Store type: show precise GPS pin, no boundary
+                const latlng = [Number(item.lat), Number(item.lng)];
+                L.marker(latlng, {
+                    icon: L.divIcon({
+                        className: 'mug-marker',
+                        html: '',
+                        iconSize: [14, 14],
+                        iconAnchor: [7, 7],
+                    }),
+                }).addTo(this.modalMap);
+                this.modalMap.setView(latlng, 16);
             }
 
             setTimeout(() => {
@@ -667,7 +815,6 @@ export default {
 
             navigator.geolocation.getCurrentPosition((position) => {
                 const { latitude, longitude, accuracy } = position.coords;
-                const L = window.L;
 
                 if (this.currentLocationMarker && this.map) {
                     this.map.removeLayer(this.currentLocationMarker);
@@ -705,6 +852,10 @@ export default {
         itemImageUrl(item){
             return `./output/mugs/${item.id}/mug.jpg`;
         },
+        withTs(url){
+            const sep = url.includes('?') ? '&' : '?';
+            return `${url}${sep}t=${Date.now()}`;
+        },
         itemMetaUrl(item){
             return `./output/mugs/${item.id}/meta.json`;
         },
@@ -713,6 +864,31 @@ export default {
         },
         itemBoundaryUrl(item){
             return `./${this.itemBoundaryPath(item)}`;
+        },
+        onImgError(e){
+            e.target.style.opacity = '0';
+        },
+        async openJsonViewer(url, title){
+            this.jsonViewerTitle = title;
+            this.jsonViewerContent = '載入中...';
+            this.jsonViewerVisible = true;
+            await this.$nextTick();
+            const overlay = this.$el.querySelector('.json-viewer-overlay');
+            if (overlay) disableBodyScroll(overlay);
+            try {
+                const response = await fetch(this.withTs(url));
+                const data = await response.json();
+                this.jsonViewerContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                this.jsonViewerContent = '載入失敗';
+            }
+        },
+        closeJsonViewer(){
+            const overlay = this.$el.querySelector('.json-viewer-overlay');
+            if (overlay) enableBodyScroll(overlay);
+            this.jsonViewerVisible = false;
+            this.jsonViewerTitle = '';
+            this.jsonViewerContent = '';
         },
         hasDrawableGeometry(geojson){
             const features = Array.isArray(geojson.features) ? geojson.features : [];

@@ -47,6 +47,8 @@
     "js-video-url-parser": "^0.5.1",
     "json-2-csv": "^3.18.0",
     "just-detect-adblock": "^1.1.0",
+    "leaflet": "^1.9.4",
+    "leaflet.markercluster": "^1.5.3",
     "marked": "^1.1.1",
     "md5": "^2.3.0",
     "moment": "^2.29.3",

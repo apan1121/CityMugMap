@@ -14,13 +14,23 @@ if (!file_exists($configFile)) {
 require_once $configFile;
 require_once APP_DIR . '/scripts/lib/JsonService.php';
 require_once APP_DIR . '/scripts/lib/FileService.php';
+require_once APP_DIR . '/scripts/lib/GeoService.php';
 
-$options = getopt('', ['list', 'delete:', 'interactive', 'help']);
+$userAgent = defined('CITY_MUG_USER_AGENT')
+    ? CITY_MUG_USER_AGENT
+    : 'CityMugMap/1.0 (local build script)';
+$geoService = new GeoService(
+    $userAgent,
+    defined('GOOGLE_PLACES_API_KEY') ? GOOGLE_PLACES_API_KEY : ''
+);
+
+$options = getopt('', ['list', 'delete:', 'edit:', 'interactive', 'help']);
 
 if (isset($options['help'])) {
     echo "Usage:\n";
     echo "  php scripts/manage_mugs.php --list\n";
     echo "  php scripts/manage_mugs.php --delete=<item-id>\n";
+    echo "  php scripts/manage_mugs.php --edit=<source-filename>   e.g. --edit=IMG_7130.jpeg\n";
     echo "  php scripts/manage_mugs.php --interactive\n";
     exit(0);
 }
@@ -28,9 +38,11 @@ if (isset($options['help'])) {
 $outputDir = defined('CITY_MUG_OUTPUT_DIR') ? CITY_MUG_OUTPUT_DIR : APP_DIR . '/output';
 $mainJsonPath = $outputDir . '/main.json';
 $processedPath = $outputDir . '/processed_files.json';
+$overridePath = $outputDir . '/manual_overrides.json';
 
 $mainItems = JsonService::read($mainJsonPath, []);
 $processedFiles = JsonService::read($processedPath, []);
+$overrides = JsonService::read($overridePath, []);
 
 if (!is_array($mainItems)) {
     throw new RuntimeException('output/main.json must contain an array.');
@@ -38,6 +50,10 @@ if (!is_array($mainItems)) {
 
 if (!is_array($processedFiles)) {
     $processedFiles = [];
+}
+
+if (!is_array($overrides)) {
+    $overrides = [];
 }
 
 if (isset($options['list'])) {
@@ -52,12 +68,30 @@ if (isset($options['delete'])) {
         exit(1);
     }
 
-    deleteItemById($itemId, $mainItems, $processedFiles, $mainJsonPath, $processedPath, $outputDir);
+    deleteItemById($itemId, $mainItems, $processedFiles, $overrides, $mainJsonPath, $processedPath, $overridePath, $outputDir);
+    exit(0);
+}
+
+if (isset($options['edit'])) {
+    $editInput = trim((string) $options['edit']);
+    if ($editInput === '') {
+        fwrite(STDERR, "Missing filename or item id.\n");
+        exit(1);
+    }
+
+    // Accept item ID: resolve to source filename
+    $sourceFileName = resolveEditInputToSourceFile($editInput, $mainItems);
+    if ($sourceFileName === null) {
+        fwrite(STDERR, sprintf("Cannot resolve to a source file: %s\n", $editInput));
+        exit(1);
+    }
+
+    editOverride($sourceFileName, $mainItems, $overrides, $overridePath);
     exit(0);
 }
 
 if (isset($options['interactive'])) {
-    interactiveDelete($mainItems, $processedFiles, $mainJsonPath, $processedPath, $outputDir);
+    interactiveDelete($mainItems, $processedFiles, $overrides, $mainJsonPath, $processedPath, $overridePath, $outputDir);
     exit(0);
 }
 
@@ -91,11 +125,129 @@ function listItems(array $mainItems): void
     renderTable($headers, $rows);
 }
 
+function editOverride(string $sourceFileName, array $mainItems, array $overrides, string $overridePath): void
+{
+    global $geoService;
+
+    // Build current values: override takes priority, fall back to main.json
+    $current = $overrides[$sourceFileName] ?? null;
+    if ($current === null) {
+        foreach ($mainItems as $item) {
+            if (basename((string) ($item['source_image'] ?? '')) === $sourceFileName) {
+                $current = $item;
+                break;
+            }
+        }
+    }
+
+    if ($current === null) {
+        echo sprintf("No existing data found for %s. Starting with empty values.\n", $sourceFileName);
+        $current = [];
+    } else {
+        echo sprintf("Editing override for: %s\n", $sourceFileName);
+    }
+
+    $typeDefault = $current['type'] ?? 'city';
+    $type = promptInput('Type (city/country/store/region)', $typeDefault);
+    if (!in_array($type, ['city', 'country', 'store', 'region'], true)) {
+        $type = 'city';
+    }
+
+    $result = ['type' => $type];
+
+    if ($type === 'store') {
+        // Store: Google Maps URL drives everything
+        $existingMapsUrl = $current['google_maps_url'] ?? '';
+        $mapsUrl = promptInput('Google Maps URL', $existingMapsUrl);
+
+        if ($mapsUrl === '') {
+            fwrite(STDERR, "Google Maps URL is required for store type.\n");
+            exit(1);
+        }
+
+        echo "Resolving Google Maps URL...\n";
+        try {
+            $mapsData = $geoService->resolveGoogleMapsUrl($mapsUrl);
+            echo sprintf("  Name:     %s\n", $mapsData['name']);
+            echo sprintf("  GPS:      lat=%s, lng=%s\n", $mapsData['lat'], $mapsData['lng']);
+            echo sprintf("  Area:     %s, %s\n", $mapsData['resolved_city'], $mapsData['resolved_country']);
+            echo "\n--- Confirm / edit each field (Enter to keep) ---\n";
+
+            $result['google_maps_url'] = $mapsUrl;
+            $result['lat']             = $mapsData['lat'];
+            $result['lng']             = $mapsData['lng'];
+            $result['venue']           = promptInput('Venue name (English)', $mapsData['name'] !== '' ? $mapsData['name'] : ($current['venue'] ?? ''));
+            $result['city']            = promptInput('City', $mapsData['resolved_city']);
+            $result['country']         = promptInput('Country', $mapsData['resolved_country']);
+            $result['display_name']    = promptInput('Display name', $current['display_name'] ?? buildStoreDisplayName($result['venue']));
+            $result['description']     = promptInput('Description', $current['description'] ?? '');
+        } catch (RuntimeException $e) {
+            fwrite(STDERR, sprintf("Could not resolve Google Maps URL: %s\n", $e->getMessage()));
+            exit(1);
+        }
+    } else {
+        $result['venue']         = '';
+        $result['city']          = promptInput('City', $current['city'] ?? '');
+        $result['country']       = promptInput('Country', $current['country'] ?? '');
+        $result['display_name']  = promptInput('Display name', $current['display_name'] ?? '');
+        $result['description']   = promptInput('Description', $current['description'] ?? '');
+    }
+
+    $result['confidence'] = (float) promptInput('Confidence (0-1)', (string) ($current['confidence'] ?? '1'));
+    $result['taken_at']   = $current['taken_at'] ?? null;
+
+    $overrides[$sourceFileName] = $result;
+    JsonService::write($overridePath, $overrides);
+
+    echo sprintf("\nSaved override for %s:\n", $sourceFileName);
+    foreach ($result as $k => $v) {
+        if ($k === 'taken_at') {
+            continue;
+        }
+        echo sprintf("  %-14s %s\n", $k . ':', is_string($v) ? $v : (string) $v);
+    }
+    echo "\nRun to apply:\n";
+    echo sprintf("  php scripts/manage_mugs.php --delete=%s  (if already processed)\n", findItemIdBySource($sourceFileName, $mainItems) ?? '<item-id>');
+    echo sprintf("  php scripts/process_mugs.php --file=%s\n", $sourceFileName);
+}
+
+function resolveEditInputToSourceFile(string $input, array $mainItems): ?string
+{
+    // Already a filename (contains a dot extension)
+    if (preg_match('/\.\w+$/', $input)) {
+        return $input;
+    }
+
+    // Treat as item ID — find source_image in main.json
+    foreach ($mainItems as $item) {
+        if (($item['id'] ?? null) === $input) {
+            $source = basename((string) ($item['source_image'] ?? ''));
+
+            return $source !== '' ? $source : null;
+        }
+    }
+
+    return null;
+}
+
+function findItemIdBySource(string $sourceFileName, array $mainItems): ?string
+{
+    foreach ($mainItems as $item) {
+        if (basename((string) ($item['source_image'] ?? '')) === $sourceFileName) {
+            return (string) ($item['id'] ?? '');
+        }
+    }
+
+    return null;
+}
+
 function interactiveDelete(
     array $mainItems,
     array $processedFiles,
+    array $overrides,
     string $mainJsonPath,
     string $processedPath,
+    string $overridePath,
     string $outputDir
 ): void {
     if ($mainItems === []) {
@@ -116,7 +268,7 @@ function interactiveDelete(
         exit(1);
     }
 
-    deleteItemById($itemId, $mainItems, $processedFiles, $mainJsonPath, $processedPath, $outputDir);
+    deleteItemById($itemId, $mainItems, $processedFiles, $overrides, $mainJsonPath, $processedPath, $overridePath, $outputDir);
 }
 
 function resolveSelectionToId(string $selection, array $mainItems): ?string
@@ -143,8 +295,10 @@ function deleteItemById(
     string $itemId,
     array $mainItems,
     array $processedFiles,
+    array $overrides,
     string $mainJsonPath,
     string $processedPath,
+    string $overridePath,
     string $outputDir
 ): void {
     $targetItem = null;
@@ -191,10 +345,16 @@ function deleteItemById(
         }
     }
 
+    if ($sourceImage !== '' && isset($overrides[$sourceImage])) {
+        unset($overrides[$sourceImage]);
+        JsonService::write($overridePath, $overrides);
+        echo sprintf("Removed manual override: %s\n", $sourceImage);
+    }
+
     JsonService::write($mainJsonPath, $remainingItems);
     JsonService::write($processedPath, $processedFiles);
 
-    echo "Updated output/main.json and output/processed_files.json\n";
+    echo "Updated main.json, processed_files.json, manual_overrides.json\n";
     echo "Delete completed.\n";
 }
 
@@ -235,6 +395,15 @@ function deleteDirectory(string $directory): void
     if (!rmdir($directory)) {
         throw new RuntimeException(sprintf('Failed to delete directory: %s', $directory));
     }
+}
+
+function buildStoreDisplayName(string $venue): string
+{
+    if (stripos($venue, 'starbucks') === 0) {
+        return $venue;
+    }
+
+    return 'Starbucks ' . $venue;
 }
 
 function promptInput(string $label, string $default = ''): string
