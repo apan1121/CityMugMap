@@ -228,5 +228,15 @@
         "id": "store-hotel-resonance-taipei-20260406-01",
         "city_key": "store-hotel-resonance-taipei",
         "processed_at": "2026-04-06T07:26:25+00:00"
+    },
+    "IMG_7212.jpeg": {
+        "id": "vietnam-vietnam-20260919-01",
+        "city_key": "vietnam-vietnam",
+        "processed_at": "2026-09-19T15:55:59+00:00"
+    },
+    "IMG_7213.jpeg": {
+        "id": "ho-chi-minh-city-vietnam-20260919-01",
+        "city_key": "ho-chi-minh-city-vietnam",
+        "processed_at": "2026-09-19T15:56:20+00:00"
     }
 }

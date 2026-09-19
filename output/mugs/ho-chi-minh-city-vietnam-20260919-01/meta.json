@@ -1,0 +1,18 @@
+{
+    "id": "ho-chi-minh-city-vietnam-20260919-01",
+    "type": "city",
+    "venue": "",
+    "google_maps_url": null,
+    "city_key": "ho-chi-minh-city-vietnam",
+    "city": "Ho Chi Minh City",
+    "country": "Vietnam",
+    "display_name": "Ho Chi Minh City",
+    "description": "A mug representing the vibrant city of Ho Chi Minh in Vietnam.",
+    "lat": 10.7737261,
+    "lng": 106.7166008,
+    "source_image": "IMG_7213.jpeg",
+    "confidence": 0.95,
+    "taken_at": null,
+    "created_at": "2026-09-19T15:56:20+00:00",
+    "updated_at": "2026-09-19T15:56:20+00:00"
+}

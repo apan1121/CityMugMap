@@ -161,9 +161,31 @@ foreach ($files as $sourcePath) {
 
         logMessage($logPrefix, 'Step 3/7 Query geolocation and boundary from OpenStreetMap.');
         $isStore    = ($analysis['type'] ?? 'city') === 'store';
+        $isCountry  = ($analysis['type'] ?? 'city') === 'country';
         $venue      = trim((string) ($analysis['venue'] ?? ''));
         $overrideLat = isset($analysis['lat']) ? (float) $analysis['lat'] : null;
         $overrideLng = isset($analysis['lng']) ? (float) $analysis['lng'] : null;
+
+        // Country mugs are sometimes returned with the same city and country
+        // names (for example, "Vietnam" / "Vietnam"). Treat those as country
+        // data as well, so Nominatim does not resolve a same-named locality.
+        if (
+            !$isStore
+            && !$isCountry
+            && trim((string) ($analysis['city'] ?? '')) !== ''
+            && strcasecmp(
+                trim((string) ($analysis['city'] ?? '')),
+                trim((string) ($analysis['country'] ?? ''))
+            ) === 0
+            && strtolower(trim((string) ($analysis['country'] ?? ''))) !== 'unknown'
+        ) {
+            $isCountry = true;
+            $analysis['type'] = 'country';
+            logMessage($logPrefix, sprintf(
+                'City and country are identical ("%s"). Treating item as country data.',
+                $analysis['country']
+            ));
+        }
 
         if ($isStore && $overrideLat !== null && $overrideLng !== null) {
             // Use coordinates from Google Maps override directly — no Nominatim needed
@@ -179,6 +201,13 @@ foreach ($files as $sourcePath) {
                 'resolved_city'    => (string) ($analysis['city'] ?? ''),
                 'resolved_country' => (string) ($analysis['country'] ?? ''),
             ];
+        } elseif ($isCountry) {
+            $geoCountry = normalizeLookupCountry((string) $analysis['country']);
+            logMessage($logPrefix, sprintf(
+                'Country geocode query: country="%s"',
+                $geoCountry !== '' ? $geoCountry : '(empty)'
+            ));
+            $geo = $geoService->lookupCountry($geoCountry);
         } else {
             $geoCountry = normalizeLookupCountry((string) $analysis['country']);
             logMessage($logPrefix, sprintf(

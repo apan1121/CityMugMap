@@ -184,15 +184,36 @@ final class GeoService
         return $this->lookup($query);
     }
 
-    private function lookup(string $query): array
+    public function lookupCountry(string $country): array
     {
-        $url = 'https://nominatim.openstreetmap.org/search?' . http_build_query([
+        $country = trim($country);
+        if ($country === '') {
+            throw new RuntimeException('Country is required for country geocoding.');
+        }
+
+        $result = $this->lookup($country, ['featuretype' => 'country']);
+        $addresstype = strtolower((string) ($result['raw']['addresstype'] ?? ''));
+        if ($addresstype !== 'country') {
+            throw new RuntimeException(sprintf(
+                'Geocoding result for %s is not a country (addresstype=%s).',
+                $country,
+                $addresstype !== '' ? $addresstype : 'unknown'
+            ));
+        }
+
+        return $result;
+    }
+
+    private function lookup(string $query, array $extraParams = []): array
+    {
+        $params = array_merge([
             'q'               => $query,
             'format'          => 'jsonv2',
             'limit'           => 1,
             'polygon_geojson' => 1,
             'accept-language' => 'en',
-        ]);
+        ], $extraParams);
+        $url = 'https://nominatim.openstreetmap.org/search?' . http_build_query($params);
 
         $results = $this->requestJson($url);
         if (!is_array($results) || $results === []) {

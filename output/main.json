@@ -195,6 +195,21 @@
         "created_at": "2026-04-06T06:34:21+00:00"
     },
     {
+        "id": "ho-chi-minh-city-vietnam-20260919-01",
+        "type": "city",
+        "venue": "",
+        "google_maps_url": null,
+        "city_key": "ho-chi-minh-city-vietnam",
+        "city": "Ho Chi Minh City",
+        "country": "Vietnam",
+        "display_name": "Ho Chi Minh City",
+        "description": "A mug representing the vibrant city of Ho Chi Minh in Vietnam.",
+        "lat": 10.7737261,
+        "lng": 106.7166008,
+        "source_image": "input/IMG_7213.jpeg",
+        "created_at": "2026-09-19T15:56:20+00:00"
+    },
+    {
         "id": "hong-kong-hong-kong-20260406-01",
         "type": "city",
         "venue": "",
@@ -673,6 +688,21 @@
         "lng": -79.3839347,
         "source_image": "input/IMG_7109.jpeg",
         "created_at": "2026-04-06T06:32:58+00:00"
+    },
+    {
+        "id": "vietnam-vietnam-20260919-01",
+        "type": "country",
+        "venue": "",
+        "google_maps_url": null,
+        "city_key": "vietnam-vietnam",
+        "city": "Vietnam",
+        "country": "Vietnam",
+        "display_name": "Vietnam",
+        "description": "This mug features designs representing Vietnam.",
+        "lat": 15.9266657,
+        "lng": 107.9650855,
+        "source_image": "input/IMG_7212.jpeg",
+        "created_at": "2026-09-19T15:55:59+00:00"
     },
     {
         "id": "yokohama-japan-20260406-01",
