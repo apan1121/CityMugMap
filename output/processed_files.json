@@ -238,5 +238,20 @@
         "id": "ho-chi-minh-city-vietnam-20260919-01",
         "city_key": "ho-chi-minh-city-vietnam",
         "processed_at": "2026-09-19T15:56:20+00:00"
+    },
+    "IMG_8655.jpeg": {
+        "id": "store-stanford-university-20261122-01",
+        "city_key": "store-stanford-university",
+        "processed_at": "2026-11-22T07:31:13+00:00"
+    },
+    "IMG_8656.jpeg": {
+        "id": "san-francisco-united-states-20261122-01",
+        "city_key": "san-francisco-united-states",
+        "processed_at": "2026-11-22T07:31:31+00:00"
+    },
+    "IMG_8658.jpeg": {
+        "id": "california-united-states-20261122-01",
+        "city_key": "california-united-states",
+        "processed_at": "2026-11-22T07:31:57+00:00"
     }
 }

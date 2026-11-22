@@ -1,0 +1,18 @@
+{
+    "id": "san-francisco-united-states-20261122-01",
+    "type": "city",
+    "venue": "",
+    "google_maps_url": null,
+    "city_key": "san-francisco-united-states",
+    "city": "San Francisco",
+    "country": "United States",
+    "display_name": "San Francisco",
+    "description": "A Starbucks city mug featuring iconic elements of San Francisco.",
+    "lat": 37.7879363,
+    "lng": -122.4075201,
+    "source_image": "IMG_8656.jpeg",
+    "confidence": 0.95,
+    "taken_at": null,
+    "created_at": "2026-11-22T07:31:31+00:00",
+    "updated_at": "2026-11-22T07:31:31+00:00"
+}

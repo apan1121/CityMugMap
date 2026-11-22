@@ -1,0 +1,18 @@
+{
+    "id": "store-stanford-university-20261122-01",
+    "type": "store",
+    "venue": "Stanford University",
+    "google_maps_url": null,
+    "city_key": "store-stanford-university",
+    "city": "Stanford",
+    "country": "United States",
+    "display_name": "Stanford, United States",
+    "description": "This mug represents Stanford University in California.",
+    "lat": 37.4265407,
+    "lng": -122.1703055,
+    "source_image": "IMG_8655.jpeg",
+    "confidence": 0.9,
+    "taken_at": null,
+    "created_at": "2026-11-22T07:31:13+00:00",
+    "updated_at": "2026-11-22T07:31:13+00:00"
+}
