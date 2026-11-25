@@ -4,5 +4,28 @@
     "country": "United States",
     "lat": 25.7741566,
     "lng": -80.1935973,
-    "updated_at": "2026-04-06T06:32:18+00:00"
+    "updated_at": "2026-04-06T06:32:18+00:00",
+    "place_id": "ChIJEcHIDqKw2YgRZU-t3XHylv8",
+    "place_name": "Miami",
+    "google_maps_uri": "https://maps.google.com/?cid=18417174297042571109&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:47:20+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 0.95,
+    "decision_reason": "Miami is a well-known city located in the United States.",
+    "summary": "Miami, located at the mouth of the Miami River on the western shores of Biscayne Bay, is a vibrant coastal metropolis known for its rich cultural diversity and economic significance. Incorporated in 1896, it has evolved into the largest urban economy in Florida, with a 2023 gross domestic product of $533.674 billion. The city is a major hub for finance, commerce, culture, arts, and international trade, housing one of the largest concentrations of international banks in the U.S. Miami's tropical climate and picturesque beaches make it a year-round destination for outdoor activities like boating, sailing, and fishing. The city's cultural landscape is enriched by numerous parks, gardens, and cultural destinations, reflecting its diverse heritage and vibrant arts scene.",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://www.census.gov/quickfacts/fact/table/miamicityflorida/RTN130222?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.census.gov/quickfacts/fact/table/miamicityflorida/PST045224?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-23T15:26:07+00:00"
 }

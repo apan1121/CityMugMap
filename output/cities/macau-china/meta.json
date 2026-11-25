@@ -4,5 +4,64 @@
     "country": "China",
     "lat": 22.1757605,
     "lng": 113.5514142,
-    "updated_at": "2026-04-06T06:33:18+00:00"
+    "updated_at": "2026-04-06T06:33:18+00:00",
+    "place_id": "ChIJ88g14uB6ATQR9qyFtCzje8Y",
+    "place_name": "Macao",
+    "google_maps_uri": "https://maps.google.com/?cid=14302274822791867638&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:47:18+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 0.95,
+    "decision_reason": "Macau is a special administrative region known as a city within China.",
+    "summary": "Macau, officially known as the Macao Special Administrative Region (MSAR) of the People's Republic of China, is a coastal region located on the southern tip of the Pearl River Delta. It comprises the Macau Peninsula and the islands of Taipa and Coloane, with a total land area of approximately 33.3 square kilometers. As of 2024, Macau's population is estimated to be around 668,300, making it one of the most densely populated regions globally. ([macaoeto.ch](https://www.macaoeto.ch/en/about-macao.php?utm_source=openai))\n\nHistorically, Macau was a Portuguese colony for over four centuries, from 1557 until its return to Chinese sovereignty on December 20, 1999. Under the \"one country, two systems\" framework, Macau maintains a high degree of autonomy, including its own legal system, currency (the Macanese pataca), and immigration controls. ([legalclarity.org](https://legalclarity.org/is-macau-part-of-china-one-country-two-systems/?utm_source=openai))\n\nEconomically, Macau is renowned as the world's largest gambling hub, with its casino industry significantly contributing to its GDP. However, recent efforts have been made to diversify the economy by developing sectors such as finance, technology, and Chinese medicine. ([apnews.com](https://apnews.com/article/384759d1f46a32d122ba656bb9eaa3c4?utm_source=openai))\n\nCulturally, Macau is celebrated for its unique blend of Portuguese and Chinese heritage, evident in its architecture, cuisine, and festivals. The Historic Centre of Macau is a UNESCO World Heritage site, reflecting its rich history and cultural significance. ([en.chinanetz.info](https://en.chinanetz.info/provinces/macau?utm_source=openai))",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://www.macaoeto.ch/en/about-macao.php?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://legalclarity.org/is-macau-part-of-china-one-country-two-systems/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://apnews.com/article/384759d1f46a32d122ba656bb9eaa3c4?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://en.chinanetz.info/provinces/macau?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.worldatlas.com/maps/macao?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://nutanica.com/Macau?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.worlddata.info/asia/macao/index.php?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.guangdongmacaofair.com/en/macao-info?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.worldometers.info/countries/china-macao-sar/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.btw.hk/en/macao-special-administrative-region?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.macaotourism.gov.mo/en/article/about-macao/location-and-time?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T15:01:08+00:00"
 }

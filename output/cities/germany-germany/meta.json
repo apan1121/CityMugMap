@@ -4,5 +4,72 @@
     "country": "Germany",
     "lat": 51.1638175,
     "lng": 10.4478313,
-    "updated_at": "2026-04-06T06:33:40+00:00"
+    "updated_at": "2026-04-06T06:33:40+00:00",
+    "place_id": "ChIJa76xwh5ymkcRW-WRjmtd6HU",
+    "place_name": "Germany",
+    "google_maps_uri": "https://maps.google.com/?cid=8496143413569250651&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "country",
+    "summary_updated_at": "2026-11-24T08:46:46+00:00",
+    "resolved_type": "country",
+    "decision_source": "openai",
+    "decision_confidence": 1,
+    "decision_reason": "Germany is a sovereign country.",
+    "summary": "Germany, officially the Federal Republic of Germany, is a country in Central Europe, bordered by Denmark to the north; Poland and the Czech Republic to the east; Austria and Switzerland to the south; and France, Luxembourg, Belgium, and the Netherlands to the west. Its capital and largest city is Berlin. Germany is the most populous member state of the European Union, with a population of over 83 million people. The country is known for its rich history, cultural heritage, and significant contributions to art, philosophy, and science. Visitors often experience a blend of historic landmarks, vibrant cities, and picturesque landscapes, from the bustling streets of Berlin to the scenic beauty of the Bavarian Alps. Germany's economy is one of the largest in the world, with a strong industrial base and a high standard of living. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Germany?utm_source=openai))",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://en.wikipedia.org/wiki/Germany?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://european-union.europa.eu/principles-countries-history/eu-countries/germany_en?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://european-union.europa.eu/principles-countries-history/eu-countries/germany_en?prefLang=uk&utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://gateway.euro.who.int/en/country-profiles/germany/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.bundesregierung.de/breg-en/service/germany-820098?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://countries.world/europe/germany/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.deutschland.de/en/germany-facts-information-figures-worth-knowing?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.deutschland.de/en/germany-at-a-glance?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://geographypin.com/germany/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://globalcincinnati.org/programs/global-education/country-profiles/germany/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.countryreports.org/country/Germany?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.supereducational.com/countries/germany?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.worlddata.info/europe/germany/index.php?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T14:59:48+00:00"
 }

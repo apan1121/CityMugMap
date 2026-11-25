@@ -1,5 +1,5 @@
 {
-    "id": "kuala-lumpur-malaysia-20260406-01",
+    "id": "kuala-lumpur-malaysia-20261122-01",
     "type": "city",
     "venue": "",
     "google_maps_url": null,
@@ -7,12 +7,12 @@
     "city": "Kuala Lumpur",
     "country": "Malaysia",
     "display_name": "Kuala Lumpur",
-    "description": "A Starbucks mug featuring the iconic sights and culture of Kuala Lumpur.",
+    "description": "This mug represents the city of Kuala Lumpur in Malaysia.",
     "lat": 3.1516964,
     "lng": 101.6942371,
     "source_image": "IMG_3724.jpeg",
-    "confidence": 0.9,
+    "confidence": 0.95,
     "taken_at": null,
-    "created_at": "2026-04-06T06:31:49+00:00",
-    "updated_at": "2026-04-06T06:31:49+00:00"
+    "created_at": "2026-11-22T08:57:27+00:00",
+    "updated_at": "2026-11-22T08:57:27+00:00"
 }

@@ -4,5 +4,72 @@
     "country": "Canada",
     "lat": 43.1065603,
     "lng": -79.0639039,
-    "updated_at": "2026-04-06T06:32:14+00:00"
+    "updated_at": "2026-04-06T06:32:14+00:00",
+    "place_id": "ChIJuU2C7F5E04kRiKK9VmHF0kY",
+    "place_name": "Niagara Falls",
+    "google_maps_uri": "https://maps.google.com/?cid=5103358349621961352&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "attraction",
+    "summary_updated_at": "2026-11-24T08:47:27+00:00",
+    "resolved_type": "attraction",
+    "decision_source": "openai",
+    "decision_confidence": 0.95,
+    "decision_reason": "Niagara Falls is a well-known natural landmark and tourist destination, making it an attraction rather than just a city.",
+    "summary": "Niagara Falls, located on the border between Ontario, Canada, and New York, USA, is renowned for its breathtaking waterfalls: Horseshoe Falls, American Falls, and Bridal Veil Falls. The Horseshoe Falls, primarily on the Canadian side, are the largest and most powerful, with over 168,000 cubic meters of water cascading every minute during peak hours. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Niagara_Falls?utm_source=openai)) The city of Niagara Falls, Ontario, offers visitors a vibrant experience with attractions such as the SkyWheel, Ripley's Believe It or Not! museum, and the Winter Festival of Lights. The surrounding region is also celebrated for its wine production, with numerous wineries offering tastings and tours. ([destinationontario.com](https://www.destinationontario.com/en-ca/cities-towns/niagara-falls?utm_source=openai)) Whether by day or night, the illuminated falls provide a mesmerizing spectacle, making it a must-visit destination for travelers seeking natural beauty and adventure.",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://en.wikipedia.org/wiki/Niagara_Falls?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.destinationontario.com/en-ca/cities-towns/niagara-falls?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://niagarafalls.ca/city-government/who-we-are/about-niagara-falls/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://niagarafalls.ca/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://niagarafalls.ca/recreation-culture-and-community/visiting-niagara-falls?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://niagarafalls.ca/city-government/contact-us?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.enjoyontario.ca/niagara-falls/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.destinationontario.com/en-ca/travel-resources/family-adventure-and-fun-niagara-falls-canada?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://tourismniagarafalls.ca/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.visitniagaracanada.com/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.niagarafallstourism.com/see-the-falls/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://toronto.citynews.ca/2026/05/19/what-to-do-in-niagara-falls-ontario-canada/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.niagaraparks.com/visitor-information/welcome-centres/?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T15:01:32+00:00"
 }

@@ -4,5 +4,68 @@
     "country": "Japan",
     "lat": 35.6768601,
     "lng": 139.7638947,
-    "updated_at": "2026-04-06T07:02:32+00:00"
+    "updated_at": "2026-04-06T07:02:32+00:00",
+    "place_id": "ChIJ51cu8IcbXWARiRtXIothAS4",
+    "place_name": "Tokyo",
+    "google_maps_uri": "https://maps.google.com/?cid=3315038050925878153&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:48:15+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 1,
+    "decision_reason": "Tokyo is a recognized municipality and the capital city of Japan.",
+    "summary": "Tokyo, Japan's capital and most populous city, is a vibrant metropolis that seamlessly blends traditional culture with modern innovation. Established as Edo in the 17th century, it became Tokyo in 1868, meaning \"eastern capital.\" The city is renowned for its iconic landmarks such as the Tokyo Skytree and Shibuya Crossing, and offers a rich tapestry of experiences, from historic temples in Asakusa to bustling shopping districts like Shinjuku and Shibuya. Visitors can enjoy a diverse culinary scene, world-class shopping, and a dynamic nightlife, all set against the backdrop of a city that never sleeps. Tokyo's efficient public transportation system makes it easy to explore its many facets, from serene parks and gardens to cutting-edge technology hubs. Whether you're interested in history, culture, or contemporary urban life, Tokyo offers an unforgettable experience.",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://unvis.it/www.britannica.com/place/Tokyo?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.japan-guide.com/e/e2164.html?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.japan-guide.com/e/e2164.html?eventId=c787989b-dd51-4463-bc51-d9d5f4680a5f&utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.japan-guide.com/e/e2164.html?pubDate=20250909&utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.gotokyo.org/en/plan/tokyo-outline/index.html?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.acouplefortheroad.com/city-guides/tokyo/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.tdh.metro.tokyo.lg.jp/english/faq/working/about.html?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.investtokyo.metro.tokyo.lg.jp/en/whytokyo/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.japan.travel/en/destinations/kanto/tokyo/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://1997-2001.state.gov/regions/eap/japan/fs-tokyo_profile_000626.html?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.eu-japan.eu/eubusinessinjapan/tokyo-metropolis?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://embraceworld.online/cities/tokyo.html?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T15:02:55+00:00"
 }

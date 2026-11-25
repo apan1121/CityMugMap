@@ -4,5 +4,68 @@
     "country": "Malaysia",
     "lat": 1.5597561,
     "lng": 110.345397,
-    "updated_at": "2026-04-06T06:33:45+00:00"
+    "updated_at": "2026-04-06T06:33:45+00:00",
+    "place_id": "ChIJEb-MJYQH-zERcn6xGllXctM",
+    "place_name": "Kuching",
+    "google_maps_uri": "https://maps.google.com/?cid=15236336529559354994&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:47:01+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 0.95,
+    "decision_reason": "Kuching is a municipality and the capital of the Sarawak state in Malaysia.",
+    "summary": "Kuching, the capital and largest city of Sarawak, Malaysia, is situated along the Sarawak River on the island of Borneo. Known as the \"Cat City,\" Kuching is celebrated for its rich cultural diversity, blending Malay, Chinese, Indian, and indigenous communities. This harmonious mix is evident in its architecture, cuisine, and daily life. The city's historic center features colonial-era buildings, traditional shophouses, and vibrant markets, offering visitors a glimpse into its storied past. Kuching's relaxed atmosphere, combined with its culinary heritage, has earned it recognition as a UNESCO Creative City of Gastronomy. The city's name, \"Kuching,\" translates to \"cat\" in Malay, and while the exact origin of the name is debated, it is often associated with feline imagery throughout the city. ([visitsarawak.org](https://www.visitsarawak.org/discover-sarawak/kuching-sarawak-capital/?utm_source=openai)) Visitors can explore the Kuching Waterfront, stroll along Main Bazaar, and savor local dishes like Sarawak laksa and kolo mee. The city's blend of history, culture, and natural beauty makes it a unique destination in Southeast Asia.",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://www.visitsarawak.org/discover-sarawak/kuching-sarawak-capital/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.icomosga2026.org.my/app/about-kuching?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://malaysiaabc.citiesabc.com/city/kuching?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.ultimatecity.net/guides/kuching?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://ultimatecity.org/guides/kuching?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.wonderfulmalaysia.com/kuching-city-malaysia.htm?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.niu.edu/sarawak-nexus/practical-information/index.shtml?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://freeyork.org/entity/kuching/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.isarawak.com.my/v24/index.php/sarawak/kuching/kuching-introduction?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.sarawaktourism.com/web/places-to-visit/town-view/kuching?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://custcareportal.kobo.com/https/en.wikipedia.org/wiki/Kuching?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://accls2026.mimls.org/useful-information/about-kuching?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T15:00:30+00:00"
 }

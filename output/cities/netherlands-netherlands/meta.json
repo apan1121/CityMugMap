@@ -4,5 +4,76 @@
     "country": "Netherlands",
     "lat": 52.2434979,
     "lng": 5.6343227,
-    "updated_at": "2026-04-06T07:03:25+00:00"
+    "updated_at": "2026-04-06T07:03:25+00:00",
+    "place_id": "ChIJu-SH28MJxkcRnwq9_851obM",
+    "place_name": "Netherlands",
+    "google_maps_uri": "https://maps.google.com/?cid=12943756335953808031&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "country",
+    "summary_updated_at": "2026-11-24T08:47:24+00:00",
+    "resolved_type": "country",
+    "decision_source": "openai",
+    "decision_confidence": 1,
+    "decision_reason": "The place name is 'Netherlands' which is a sovereign country.",
+    "summary": "The Netherlands, officially known as the Kingdom of the Netherlands, is a country in Northwestern Europe, comprising twelve provinces and three Caribbean islands. Renowned for its flat landscape, the country features extensive canal systems, tulip fields, windmills, and a robust cycling culture. Amsterdam, the capital, is celebrated for its rich history, art museums, and vibrant cultural scene. The Netherlands has a parliamentary constitutional monarchy, with Amsterdam as the capital and The Hague as the seat of government. The country is a founding member of the European Union, NATO, OECD, and WTO. Its economy is market-based and mixed, ranking 13th of 157 countries according to the Index of Economic Freedom. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Netherlands?utm_source=openai)) The Netherlands is also known for its dominance in Olympic speed skating, having won 113 medals in the sport by 2018. ([time.com](https://time.com/5157134/netherlands-speed-skating-winter-olympics/?utm_source=openai))",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://en.wikipedia.org/wiki/Netherlands?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://time.com/5157134/netherlands-speed-skating-winter-olympics/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://european-union.europa.eu/principles-countries-history/eu-countries/netherlands_en?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://countries.wiki/country/netherlands?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://gateway.euro.who.int/en/country-profiles/netherlands/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://countryscope.org/en/country/netherlands?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://expatinfoholland.nl/netherlands-overview/netherlands-country-profile-for-expats/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.visitholland.nl/index.php/general-info/facts-figures/20-the-netherlands-general-information/69-the-hetherlands-the-country?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.worldometers.info/countries/netherlands/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://geography.interactiveatlas.org/europe/netherlands?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.geonames.org/countries/NL/netherlands.html?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://countryexplorer.org/country/netherlands?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.expouk.cloud/countryprofiles/NL/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.nationsonline.org/oneworld/netherlands.htm?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T15:01:25+00:00"
 }

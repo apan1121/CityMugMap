@@ -4,5 +4,19 @@
     "country": "United States",
     "lat": 37.7879363,
     "lng": -122.4075201,
-    "updated_at": "2026-11-22T07:31:31+00:00"
+    "updated_at": "2026-11-22T07:31:31+00:00",
+    "place_id": "ChIJIQBpAG2ahYAR_6128GcTUEo",
+    "place_name": "San Francisco",
+    "google_maps_uri": "https://maps.google.com/?cid=5354801294080388607&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:47:52+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 1,
+    "decision_reason": "San Francisco is a well-known city in the United States.",
+    "summary": "San Francisco, located in Northern California, is renowned for its iconic Golden Gate Bridge, historic cable cars, and diverse cultural scene. Founded in 1776, it has evolved into a vibrant metropolis celebrated for its progressive values and rich history. Visitors often explore neighborhoods like Chinatown and the Mission District, enjoy panoramic views from Twin Peaks, and experience the city's unique blend of natural beauty and urban sophistication.",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [],
+    "summary_generated_at": "2026-11-22T15:01:59+00:00"
 }

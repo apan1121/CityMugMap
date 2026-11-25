@@ -4,5 +4,72 @@
     "country": "Taiwan",
     "lat": 23.9739374,
     "lng": 120.9820179,
-    "updated_at": "2026-04-06T06:34:10+00:00"
+    "updated_at": "2026-04-06T06:34:10+00:00",
+    "place_id": "ChIJL1cHXAbzbjQRaVScvwTwEec",
+    "place_name": "Taiwan",
+    "google_maps_uri": "https://maps.google.com/?cid=16650353200550663273&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "country",
+    "summary_updated_at": "2026-11-24T08:48:10+00:00",
+    "resolved_type": "country",
+    "decision_source": "openai",
+    "decision_confidence": 1,
+    "decision_reason": "Taiwan is a sovereign country.",
+    "summary": "Taiwan, officially known as the Republic of China (ROC), is an island nation in East Asia, situated off the southeastern coast of mainland China. The main island of Taiwan is characterized by rugged mountains in the east and gently sloping plains in the west, where its highly urbanized population is concentrated. The capital city, Taipei, is part of the largest metropolitan area, which also includes New Taipei City and Keelung. With a population of approximately 23.9 million, Taiwan is among the most densely populated countries. The ROC government relocated to Taiwan in 1949 after the Chinese Civil War, and since then, Taiwan has developed into a vibrant democracy with a dynamic economy. Visitors to Taiwan can experience a rich blend of traditional Chinese culture and modern innovation, with attractions ranging from bustling night markets and historic temples to cutting-edge technology hubs. The island's diverse landscapes offer opportunities for hiking, beach activities, and exploring indigenous cultures. Taiwan's unique political status continues to be a subject of international discussion, as it maintains its own government and operates as a de facto independent state, despite claims by the People's Republic of China. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Taiwan?utm_source=openai))",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://en.wikipedia.org/wiki/Taiwan?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.worldometers.info/countries/taiwan/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.worldatlas.com/geography/taiwan.html?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://countries.world/asia/taiwan/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://geography.interactiveatlas.org/asia/taiwan?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://globalcincinnati.org/programs/global-education/country-profiles/taiwan/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.countryreports.org/country/Taiwan?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://archania.org/p/the-symbolic-world/symbolic-entities/countries/asia/taiwan?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://openfactbook.org/countries/taiwan/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.studyguides.com/study-methods/overview/cmmkffgof0yek01aamg6mic8y?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.nationsonline.org/oneworld/taiwan.htm?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.ebsco.com/research-starters/geography-and-cartography/taiwan/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://eng.taiwan.net.tw/m1.aspx?sno=0002004&utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T15:02:43+00:00"
 }

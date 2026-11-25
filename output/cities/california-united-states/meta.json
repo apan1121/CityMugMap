@@ -2,7 +2,72 @@
     "city_key": "california-united-states",
     "city": "California",
     "country": "United States",
-    "lat": 39.7837304,
-    "lng": -100.445882,
-    "updated_at": "2026-11-22T07:31:56+00:00"
+    "lat": 36.7014631,
+    "lng": -118.755997,
+    "updated_at": "2026-11-22T08:56:48+00:00",
+    "place_id": "ChIJPV4oX_65j4ARVW8IJ6IJUYs",
+    "place_name": "California",
+    "google_maps_uri": "https://maps.google.com/?cid=10038815636429762389&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "place_summary_disclosure": "",
+    "place_summary_flag_uri": "",
+    "type": "region",
+    "summary_updated_at": "2026-11-24T08:46:33+00:00",
+    "resolved_type": "region",
+    "decision_source": "openai",
+    "decision_confidence": 0.95,
+    "decision_reason": "California is a state in the United States, categorizing it as a region.",
+    "summary": "California, known as \"The Golden State,\" is the most populous state in the United States, with an estimated population of 39,355,309 as of July 1, 2025. ([census.gov](https://www.census.gov/quickfacts/CA?utm_source=openai)) It is renowned for its diverse geography, encompassing coastal regions, mountain ranges, and expansive valleys. The state's economy is the largest among U.S. states, with a Gross State Product of $4.30 trillion in 2025. ([stateintegrity.org.uk](https://stateintegrity.org.uk/world/united-states/regions/california?utm_source=openai)) California's cultural significance is profound, being a global center for entertainment, technology, and agriculture. Visitors often experience its vibrant cities, such as Los Angeles and San Francisco, and its natural wonders, including Yosemite National Park and the Pacific coastline.",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://www.census.gov/quickfacts/CA?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://stateintegrity.org.uk/world/united-states/regions/california?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.ca.gov/about-california/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.census.gov/quickfacts/fact/table/CA/AGE295223?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://geography.interactiveatlas.org/state-state/states-of-the-united-states/california?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.nationsonline.org/oneworld/map/USA/california_map.htm?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://ontheworldmap.com/usa/state/california/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.yahoo.com/places/california/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://wikipedia.cthon.io/content/wikipedia_en_all_nopic_2024-06/A/California?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://please.untaint.us/?url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FOutline_of_California&utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://wiki.parkcedar.com/wiki/California?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://x.xlrd.org/x/en.wikipedia.org/wiki/Outline_of_California?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T14:59:10+00:00"
 }

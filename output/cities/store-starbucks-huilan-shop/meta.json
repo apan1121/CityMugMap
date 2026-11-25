@@ -4,5 +4,19 @@
     "country": "Taiwan",
     "lat": 23.9386842,
     "lng": 121.5948451,
-    "updated_at": "2026-04-06T07:23:58+00:00"
+    "updated_at": "2026-04-06T07:23:58+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 0.95,
+    "decision_reason": "Hualien is a municipality in Taiwan, fitting the definition of a city.",
+    "place_id": "ChIJV6bJ67qfaDQR2FLZEYoRFxM",
+    "place_name": "Hualien",
+    "google_maps_uri": "https://maps.google.com/?cid=1375587495887590104&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "summary": "Hualien is a coastal city on Taiwan's eastern seaboard, renowned for its stunning natural landscapes and rich indigenous culture. The city serves as a gateway to Taroko Gorge, a breathtaking marble canyon with towering cliffs and lush greenery, making it a popular destination for hikers and nature enthusiasts. Hualien is also known for its vibrant night markets, where visitors can sample local delicacies and shop for traditional crafts. The city's indigenous heritage is celebrated through cultural festivals and museums, offering insights into the traditions and history of Taiwan's indigenous peoples.",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [],
+    "summary_generated_at": "2026-11-22T15:02:31+00:00",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:48:06+00:00"
 }

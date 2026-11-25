@@ -10,4 +10,4 @@ define('OPENAI_API_BASE', 'https://api.openai.com/v1');
 
 define('CITY_MUG_INPUT_DIR', APP_DIR . '/input');
 define('CITY_MUG_OUTPUT_DIR', APP_DIR . '/output');
-define('CITY_MUG_USER_AGENT', 'CityMugMap/1.0 (local build script)');
+define('CITY_MUG_USER_AGENT', 'CityMugMap/1.0 (https://example.com/your-city-mug-map)');

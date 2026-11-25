@@ -4,5 +4,68 @@
     "country": "Malaysia",
     "lat": 6.3700386,
     "lng": 99.7928634,
-    "updated_at": "2026-04-06T06:34:16+00:00"
+    "updated_at": "2026-04-06T06:34:16+00:00",
+    "place_id": "ChIJXXXEadp4TDAR_m2919txOeQ",
+    "place_name": "Langkawi",
+    "google_maps_uri": "https://maps.google.com/?cid=16445300703351369214&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "attraction",
+    "summary_updated_at": "2026-11-24T08:47:11+00:00",
+    "resolved_type": "attraction",
+    "decision_source": "openai",
+    "decision_confidence": 0.9,
+    "decision_reason": "Langkawi is known as a popular tourist destination in Malaysia, characterized by its beautiful beaches and unique attractions, making it an attraction rather than a region.",
+    "summary": "Langkawi, officially known as the Jewel of Kedah, is an archipelago of 99 islands located off the northwest coast of Peninsular Malaysia, in the state of Kedah. The main island, Pulau Langkawi, is renowned for its pristine beaches, lush rainforests, and unique limestone formations. Designated as a UNESCO Global Geopark in 2007, Langkawi offers visitors a blend of natural beauty and cultural diversity. The island's duty-free status, established in 1987, makes it a popular destination for shopping. Tourists can explore attractions such as the Langkawi SkyCab cable car, which provides panoramic views of the island's landscape, and the Kilim Karst Geoforest Park, known for its mangrove forests and limestone cliffs. Culturally, Langkawi is a melting pot, with communities practicing Islam, Hinduism, Buddhism, and Taoism, reflecting a harmonious blend of traditions. Whether seeking relaxation on its beaches or adventure in its jungles, Langkawi caters to a wide range of interests, making it a sought-after destination in Southeast Asia.",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://www.waddat.com/malaysia/langkawi/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.dem-tukki.com/en/langkawi?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.themalaysianguide.com/city/langkawi/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.discover-langkawi.com/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://ebrochures.litnya.com/islands-and-beaches/islands-and-beaches-langkawi/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://langkawicity.com.my/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.dipseaisland.com/langkawi?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://goinatlas.com/malaysia/langkawi-guide/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://ebrochures.malaysia.travel/en/langkawi/langkawi-welcome/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.bonjourmalaisie.com/en/blog/langkawi-plages-iles-budget/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.malaisiabynomadays.com/guide-malaysia/destination/langkawi?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://malaysiaobsessed.com/travel-guide-to-langkawi/?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-23T15:25:54+00:00"
 }

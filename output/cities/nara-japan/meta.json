@@ -4,5 +4,19 @@
     "country": "Japan",
     "lat": 34.6845445,
     "lng": 135.8048359,
-    "updated_at": "2026-04-06T06:34:05+00:00"
+    "updated_at": "2026-04-06T06:34:05+00:00",
+    "place_id": "ChIJwQyneMU3AWARIiZJubDZ_ko",
+    "place_name": "Nara",
+    "google_maps_uri": "https://maps.google.com/?cid=5403995955937224226&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:47:22+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 1,
+    "decision_reason": "Nara is a city in Japan, and the existing type correctly identifies it as a city.",
+    "summary": "Nara, Japan's first permanent capital, is renowned for its rich history and cultural significance. Established in 710 AD, it served as the nation's capital for 74 years, laying the foundation for Japanese civilization. The city is famed for its ancient temples, shrines, and the free-roaming deer in Nara Park, which are considered sacred. Visitors often explore landmarks such as Todai-ji Temple, housing the Great Buddha statue, and Kasuga Taisha Shrine, known for its thousands of stone lanterns. Nara's well-preserved historical sites and tranquil atmosphere offer a glimpse into Japan's ancient past, making it a must-visit destination for history enthusiasts and cultural travelers.",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [],
+    "summary_generated_at": "2026-11-23T08:15:33+00:00"
 }

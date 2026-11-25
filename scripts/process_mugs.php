@@ -31,6 +31,7 @@ if (isset($options['help'])) {
     echo "  php scripts/process_mugs.php\n";
     echo "  php scripts/process_mugs.php --file=IMG_7095.jpg\n";
     echo "  php scripts/process_mugs.php --file=IMG_7095.jpg --force\n";
+    echo "  城市 summary 會在照片處理完成後自動更新\n";
     exit(0);
 }
 
@@ -317,22 +318,25 @@ foreach ($files as $sourcePath) {
         $cityDir = $cityOutputDir . '/' . $cityKey;
         logMessage($logPrefix, sprintf('city_key=%s, id=%s', $cityKey, $itemId));
 
+        $cityMetaPath = $cityDir . '/meta.json';
+        $existingCityMeta = JsonService::read($cityMetaPath, []);
+
         logMessage($logPrefix, 'Step 5/7 Render mug.jpg without auto-cropping.');
         FileService::ensureDirectory($itemDir);
         FileService::ensureDirectory($cityDir);
         $imageFileName = FileService::copyImage($sourcePath, $itemDir);
         logMessage($logPrefix, sprintf('Rendered image: mugs/%s/%s', $itemId, $imageFileName));
 
-        $cityMeta = [
-            'city_key' => $cityKey,
-            'city' => $analysis['city'],
-            'country' => $analysis['country'],
-            'lat' => $geo['lat'],
-            'lng' => $geo['lng'],
-            'updated_at' => gmdate('c'),
-        ];
+        $cityMeta = is_array($existingCityMeta) ? $existingCityMeta : [];
+        $cityMeta['city_key'] = $cityKey;
+        $cityMeta['city'] = $analysis['city'];
+        $cityMeta['country'] = $analysis['country'];
+        $cityMeta['type'] = $analysis['type'] ?? 'city';
+        $cityMeta['lat'] = $geo['lat'];
+        $cityMeta['lng'] = $geo['lng'];
+        $cityMeta['updated_at'] = gmdate('c');
 
-        JsonService::write($cityDir . '/meta.json', $cityMeta);
+        JsonService::write($cityMetaPath, $cityMeta);
         logMessage($logPrefix, sprintf('Wrote city meta: cities/%s/meta.json', $cityKey));
 
         $meta = [
@@ -419,6 +423,20 @@ usort($mainItems, static function (array $a, array $b): int {
 JsonService::write($mainJsonPath, $mainItems);
 JsonService::write($processedPath, $processedFiles);
 
+$citySummaryExitCode = 0;
+logMessage($logPrefix, 'Run standalone city summary updater.');
+$summaryScript = APP_DIR . '/scripts/process_city_summaries.php';
+$summaryCommand = escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg($summaryScript);
+passthru($summaryCommand, $citySummaryExitCode);
+if ($citySummaryExitCode !== 0) {
+    $failedCount++;
+    fwrite(STDERR, sprintf(
+        "%s City summary updater failed with exit code %d.\n",
+        $logPrefix,
+        $citySummaryExitCode
+    ));
+}
+
 logMessage($logPrefix, sprintf('main.json items: %d', count($mainItems)));
 logMessage($logPrefix, sprintf(
     'Done in %.2fs. processed=%d skipped=%d failed=%d',
@@ -427,6 +445,10 @@ logMessage($logPrefix, sprintf(
     $skippedCount,
     $failedCount
 ));
+
+if ($citySummaryExitCode !== 0) {
+    exit($citySummaryExitCode);
+}
 
 function filterFiles(array $files, ?string $targetFile): array
 {
@@ -472,15 +494,19 @@ function migrateLegacyItemsToSharedCityData(array $mainItems, string $outputDir)
             copy($legacyBoundaryPath, $sharedBoundaryPath);
         }
 
-        $cityMeta = [
+        $cityMetaPath = $cityDir . '/meta.json';
+        $existingCityMeta = JsonService::read($cityMetaPath, []);
+        $cityMeta = is_array($existingCityMeta) ? $existingCityMeta : [];
+        $cityMeta = array_merge($cityMeta, [
             'city_key' => $cityKey,
             'city' => (string) ($item['city'] ?? 'unknown'),
             'country' => (string) ($item['country'] ?? 'unknown'),
+            'type' => (string) ($item['type'] ?? ($cityMeta['type'] ?? 'city')),
             'lat' => isset($item['lat']) ? (float) $item['lat'] : 0.0,
             'lng' => isset($item['lng']) ? (float) $item['lng'] : 0.0,
             'updated_at' => (string) ($item['created_at'] ?? gmdate('c')),
-        ];
-        JsonService::write($cityDir . '/meta.json', $cityMeta);
+        ]);
+        JsonService::write($cityMetaPath, $cityMeta);
 
         $itemMetaPath = '';
         $itemId = isset($item['id']) ? (string) $item['id'] : '';

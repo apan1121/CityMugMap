@@ -4,5 +4,72 @@
     "country": "Philippines",
     "lat": 10.47,
     "lng": 123.83,
-    "updated_at": "2026-04-06T06:33:29+00:00"
+    "updated_at": "2026-04-06T06:33:29+00:00",
+    "place_id": "ChIJ_S3NjSWZqTMRBzXT2wwDNEw",
+    "place_name": "Cebu City",
+    "google_maps_uri": "https://maps.google.com/?cid=5491017199434020103&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:46:39+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 1,
+    "decision_reason": "Cebu is a well-known city in the Philippines.",
+    "summary": "Cebu City, known as the \"Queen City of the South,\" is the oldest city in the Philippines, founded by Spanish conquistadors in 1565. Serving as the capital of Cebu Province and the regional center of Central Visayas, it is a vibrant metropolis with a population of approximately 965,332 residents as of the 2024 census. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Cebu_City?utm_source=openai)) The city is renowned for its rich history, exemplified by landmarks such as Magellan's Cross and the Basilica del Santo Niño, which houses the country's oldest religious icon. Cebu City is also a major economic hub, being the Philippines' primary domestic shipping port and a key trading center in the southern region. Visitors can experience a blend of historical sites, bustling markets, and vibrant festivals like the Sinulog Festival, reflecting the city's unique cultural heritage. ([cebucity.gov.ph](https://www.cebucity.gov.ph/ccgwp/about.php?utm_source=openai))",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://en.wikipedia.org/wiki/Cebu_City?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.cebucity.gov.ph/ccgwp/about.php?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.philatlas.com/visayas/r07/cebu-city.html?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://cebutravelguide.com/areas/cebu-city/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://tncities.com/cebu-city/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.todaysatlas.com/philippines/cebu-city?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://123city.co/city/cebu-city?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.lonelyplanet.com/destinations/philippines/cebu-city?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://commons.wikimedia.org/wiki/Cebu_City?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://cebu.travel/destinations/cebu-city?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://townapedia.com/ph/cebu-city/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://en.wikipedia-on-ipfs.org.ipns.s402.de/wiki/Cebu_City?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://thetaiwantimes.com/en/destinations/cebu-city?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T14:59:23+00:00"
 }

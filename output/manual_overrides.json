@@ -1,4 +1,24 @@
 {
+    "IMG_7095.jpeg": {
+        "type": "region",
+        "venue": "",
+        "city": "California",
+        "country": "United States",
+        "display_name": "California",
+        "description": "This mug represents the state of California.",
+        "confidence": 1,
+        "taken_at": null
+    },
+    "IMG_8658.jpeg": {
+        "type": "region",
+        "venue": "",
+        "city": "California",
+        "country": "United States",
+        "display_name": "California",
+        "description": "A mug representing the state of California.",
+        "confidence": 1,
+        "taken_at": null
+    },
     "IMG_7130.jpeg": {
         "type": "store",
         "venue": "Starbucks Huilan Shop",

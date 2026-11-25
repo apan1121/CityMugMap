@@ -4,5 +4,19 @@
     "country": "South Korea",
     "lat": 35.1799528,
     "lng": 129.0752365,
-    "updated_at": "2026-04-06T06:34:26+00:00"
+    "updated_at": "2026-04-06T06:34:26+00:00",
+    "place_id": "ChIJNc0j6G3raDURpwhxJHTL2DU",
+    "place_name": "Busan",
+    "google_maps_uri": "https://maps.google.com/?cid=3880074778667714727&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:46:31+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 1,
+    "decision_reason": "Busan is a large city in South Korea, making the classification as a city appropriate.",
+    "summary": "Busan, South Korea's second-largest city, is a vibrant coastal metropolis renowned for its bustling port, beautiful beaches, and rich cultural heritage. As a major international shipping hub, Busan's port is among the busiest in the world, contributing significantly to the city's economy. Visitors can enjoy the scenic beauty of Haeundae Beach, a popular destination for relaxation and water sports, and explore the colorful Gamcheon Culture Village, known for its artistic murals and narrow alleys. The city also hosts the annual Busan International Film Festival, attracting filmmakers and cinephiles globally. With its blend of modern urban life and traditional Korean culture, Busan offers a unique and dynamic experience for travelers.",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [],
+    "summary_generated_at": "2026-11-22T14:59:04+00:00"
 }

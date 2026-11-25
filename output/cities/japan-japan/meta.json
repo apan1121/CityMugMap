@@ -4,5 +4,72 @@
     "country": "Japan",
     "lat": 36.5748441,
     "lng": 139.2394179,
-    "updated_at": "2026-04-06T06:34:00+00:00"
+    "updated_at": "2026-04-06T06:34:00+00:00",
+    "place_id": "ChIJLxl_1w9OZzQRRFJmfNR1QvU",
+    "place_name": "Japan",
+    "google_maps_uri": "https://maps.google.com/?cid=17672817443235844676&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "country",
+    "summary_updated_at": "2026-11-24T08:46:56+00:00",
+    "resolved_type": "country",
+    "decision_source": "openai",
+    "decision_confidence": 1,
+    "decision_reason": "Japan is a sovereign country.",
+    "summary": "Japan is an island nation in East Asia, comprising an archipelago of approximately 6,800 islands, with the four main islands being Honshu, Hokkaido, Kyushu, and Shikoku. Located in the Pacific Ocean off the northeast coast of the Asian mainland, Japan is bordered to the west by the Sea of Japan, the Sea of Okhotsk in the north, and the East China Sea in the south. The country is divided into 47 administrative prefectures and eight traditional regions. Approximately 75% of its terrain is mountainous and heavily forested, concentrating its agriculture and highly urbanized population along its eastern coastal plains. With a population of almost 123 million as of 2026, it is the world's 11th most populous country. Tokyo is the country's capital and largest city. Japan is known for its rich cultural heritage, including traditional arts, cuisine, and festivals, as well as its technological advancements and economic prowess. Visitors often experience a blend of ancient traditions and modern innovations, from historic temples and shrines to bustling urban centers and cutting-edge technology hubs. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Japan?utm_source=openai))",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://en.wikipedia.org/wiki/Japan?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.japan.go.jp/japan/index.html?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.japan.go.jp/japan/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://worldreport.com/japan?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.countryreports.org/country/Japan?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.countryreports.org/articles/japan-travel-guide?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://countrypilot.info/country-profiles/japan-country-facts/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://japan.visaja.com/en/facts?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://countries.world/asia/japan/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://geographypin.com/japan/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.dfat.gov.au/geo/japan/japan-country-brief?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://go2japan.org/japan-country-profile?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.nationsonline.org/oneworld/japan.htm?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T15:00:18+00:00"
 }

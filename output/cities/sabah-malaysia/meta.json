@@ -2,7 +2,72 @@
     "city_key": "sabah-malaysia",
     "city": "Sabah",
     "country": "Malaysia",
-    "lat": 5.4257359,
-    "lng": 117.0326392,
-    "updated_at": "2026-04-06T06:31:43+00:00"
+    "lat": 4.5693754,
+    "lng": 102.2656823,
+    "updated_at": "2026-11-22T08:57:18+00:00",
+    "place_id": "ChIJnYq8yHFRFTIRB7OWbEMenYg",
+    "place_name": "Sabah",
+    "google_maps_uri": "https://maps.google.com/?cid=9844057635435229959&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "place_summary_disclosure": "",
+    "place_summary_flag_uri": "",
+    "type": "region",
+    "summary_updated_at": "2026-11-24T08:47:49+00:00",
+    "resolved_type": "region",
+    "decision_source": "openai",
+    "decision_confidence": 0.9,
+    "decision_reason": "Sabah is a state located in Malaysia, specifically on the island of Borneo.",
+    "summary": "Sabah, located on the northern part of Borneo, is Malaysia's second-largest state, covering approximately 72,500 square kilometers. It shares borders with Sarawak to the southwest and Indonesia's North Kalimantan province to the south. The capital city, Kota Kinabalu, serves as the state's economic and administrative center. Known as \"The Land Below the Wind,\" Sabah is renowned for its rich biodiversity, including Mount Kinabalu, the highest peak in Southeast Asia at 4,095 meters. The state boasts diverse cultures, with over 33 indigenous groups speaking more than 50 languages and dialects. Visitors can experience unique traditions, explore tropical rainforests, and enjoy pristine beaches along its extensive coastline. Sabah's equatorial climate ensures warm temperatures year-round, making it a year-round destination for nature enthusiasts and adventure seekers. ([sabah.gov.my](https://sabah.gov.my/introduction?utm_source=openai))",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://sabah.gov.my/introduction?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://sabah.gov.my/geography?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://sabah.gov.my/index.php/ms/pengenalan?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://integritikita.sabah.gov.my/pages/pengenalan?lang=en&utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://sabah.gov.my/index.php/ms/geografi?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://sabah.gov.my/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://dr-www.sabah.gov.my/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://sabah.gov.my/ms?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://sabahtourism.com/essential/about-sabah/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.edgepedia.org/sabah?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://ebrochures.malaysia.travel/en/malaysia-travel-guide/sabah/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://wikipedia.cthon.io/content/wikipedia_en_all_nopic_2024-06/A/Sabah?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T15:01:54+00:00"
 }

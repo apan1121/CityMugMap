@@ -4,5 +4,64 @@
     "country": "China",
     "lat": 23.1288454,
     "lng": 113.2590064,
-    "updated_at": "2026-04-06T06:32:33+00:00"
+    "updated_at": "2026-04-06T06:32:33+00:00",
+    "place_id": "ChIJxytco5X4AjQRFeTqrXXgWQ4",
+    "place_name": "Guangzhou",
+    "google_maps_uri": "https://maps.google.com/?cid=1034104385491887125&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:46:48+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 0.95,
+    "decision_reason": "Guangzhou is a well-known municipality and major city in China.",
+    "summary": "Guangzhou, the capital of Guangdong Province in southern China, is a vibrant metropolis renowned for its rich history and cultural significance. Established in 214 BCE, it has long been a pivotal port along the Pearl River, serving as a major terminus of the maritime Silk Road. This strategic location has fostered a unique blend of cultures and traditions, making it the heartland of Cantonese language, cuisine, and opera. Visitors can experience the city's dynamic atmosphere through its bustling markets, diverse culinary offerings, and iconic landmarks such as the Canton Tower and Yuexiu Park. Today, Guangzhou stands as a testament to China's economic prowess, seamlessly integrating its storied past with modern advancements.",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://www.wanderchina.guide/city/guangzhou?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://en.chinanetz.info/provinces/guangdong/guangzhou?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.gz-gicc.org.cn/city/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://chinavisitguide.com/cities/guangzhou?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.travelchinaguide.com/cityguides/guangzhou.htm?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.etripchina.com/china-guide/guangzhou/guangzhou-travel-guide.htm?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.eguangzhou.gov.cn/gzoverview/content/post_30958.html?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.atlasofchina.com/regions/guangdong/guangzhou/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://en.gdfao.gov.cn/2026-02/11/c_1015878.htm?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.zglbh.com/en/gz/travel?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.easterngateways.com/guangzhou/?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-23T15:25:22+00:00"
 }

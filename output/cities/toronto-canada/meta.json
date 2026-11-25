@@ -4,5 +4,72 @@
     "country": "Canada",
     "lat": 43.6534817,
     "lng": -79.3839347,
-    "updated_at": "2026-04-06T06:32:58+00:00"
+    "updated_at": "2026-04-06T06:32:58+00:00",
+    "place_id": "ChIJpTvG15DL1IkRd8S0KlBVNTI",
+    "place_name": "Toronto",
+    "google_maps_uri": "https://maps.google.com/?cid=3617891678464296055&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:48:17+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 1,
+    "decision_reason": "Toronto is a major city in Canada, fitting the definition of a city.",
+    "summary": "Toronto, Canada's largest city and the capital of Ontario, is a vibrant metropolis situated on the northwestern shore of Lake Ontario. With a population of approximately 2.79 million, it is renowned for its multicultural character, hosting a diverse community with over 200 distinct ethnic origins. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Toronto?utm_source=openai)) As a global hub for business, finance, technology, entertainment, and culture, Toronto boasts a skyline adorned with numerous skyscrapers, including the CN Tower, one of the tallest freestanding structures in the Western Hemisphere. ([ndangira.net](https://ndangira.net/ca/jobs/guide/?utm_source=openai)) Visitors can explore a rich tapestry of cultural institutions, festivals, and a dynamic culinary scene, reflecting the city's cosmopolitan spirit. ([toronto.ca](https://www.toronto.ca/explore-enjoy/visitor-toronto/?utm_source=openai))",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://en.wikipedia.org/wiki/Toronto?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://ndangira.net/ca/jobs/guide/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.toronto.ca/explore-enjoy/visitor-toronto/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.toronto.ca/community-people/moving-to-toronto/about-toronto/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.toronto.ca/city-government/planning-development/official-plan-guidelines/official-plan/chapters-1-5/official-plan-chapter-2-shaping-the-city/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.toronto.ca/city-government/accountability-operations-customer-service/get-involved-how-government-works/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.toronto.ca/city-government/council/my-local-government-its-for-me/about-your-local-government/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.toronto.ca/city-government/accountability-operations-customer-service/city-administration/city-managers-office/agencies-corporations/corporations/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.toronto.community/toronto?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://toronto.tripsto.world/the-essentials/toronto-the-city/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://qrealestategroup.ca/toronto-city-guide?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://acc2024.a2c2.org/about-toronto/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.maplesteps.ca/en/toronto?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T15:03:01+00:00"
 }

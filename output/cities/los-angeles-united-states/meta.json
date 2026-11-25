@@ -4,5 +4,32 @@
     "country": "United States",
     "lat": 34.0536909,
     "lng": -118.242766,
-    "updated_at": "2026-04-06T06:32:09+00:00"
+    "updated_at": "2026-04-06T06:32:09+00:00",
+    "place_id": "ChIJE9on3F3HwoAR9AhGJW_fL-I",
+    "place_name": "Los Angeles",
+    "google_maps_uri": "https://maps.google.com/?cid=16298491244936825076&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:47:16+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 1,
+    "decision_reason": "Los Angeles is a well-known municipality and a major city in the United States.",
+    "summary": "Los Angeles, often abbreviated as L.A., is the largest city in California and the second most populous in the United States, with an estimated 3.87 million residents as of 2025. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Los_Angeles?utm_source=openai)) Located in Southern California, it serves as the commercial, financial, and cultural hub of the region. The city is renowned for its Mediterranean climate, diverse population, and as the epicenter of the global entertainment industry, particularly film and television production. Visitors often experience its iconic landmarks, such as the Hollywood Sign and Griffith Observatory, and enjoy its vibrant arts scene, diverse culinary offerings, and numerous recreational activities.",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://en.wikipedia.org/wiki/Los_Angeles?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.census.gov/quickfacts/losangelescitycalifornia?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.census.gov/quickfacts/fact/table/losangelescitycalifornia/TAW120222?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T15:01:02+00:00"
 }

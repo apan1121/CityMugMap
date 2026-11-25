@@ -4,5 +4,19 @@
     "country": "Vietnam",
     "lat": 10.7737261,
     "lng": 106.7166008,
-    "updated_at": "2026-09-19T15:56:20+00:00"
+    "updated_at": "2026-09-19T15:56:20+00:00",
+    "place_id": "ChIJ0T2NLikpdTERKxE8d61aX_E",
+    "place_name": "Ho Chi Minh City",
+    "google_maps_uri": "https://maps.google.com/?cid=17392719987004412203&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:46:53+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 0.95,
+    "decision_reason": "Ho Chi Minh City is a well-known city in Vietnam.",
+    "summary": "Ho Chi Minh City, formerly known as Saigon, is Vietnam's largest city and its economic hub. Located in the southern region, it boasts a rich history and vibrant culture. Visitors can explore landmarks like the Notre-Dame Cathedral Basilica of Saigon and the War Remnants Museum, which offer insights into the city's colonial past and its role in the Vietnam War. The bustling Ben Thanh Market provides a taste of local life, while the Mekong Delta's proximity allows for scenic boat tours. The city's dynamic street food scene, featuring dishes like pho and banh mi, reflects its culinary diversity. Ho Chi Minh City seamlessly blends historical landmarks with modern developments, offering a unique experience for travelers.",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [],
+    "summary_generated_at": "2026-11-23T15:25:31+00:00"
 }

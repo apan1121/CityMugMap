@@ -4,5 +4,68 @@
     "country": "Japan",
     "lat": 33.6251241,
     "lng": 130.6180016,
-    "updated_at": "2026-04-06T07:02:52+00:00"
+    "updated_at": "2026-04-06T07:02:52+00:00",
+    "place_id": "ChIJKYSE6aHtQTURg4c5NplyCvY",
+    "place_name": "Fukuoka",
+    "google_maps_uri": "https://maps.google.com/?cid=17729108885462681475&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:46:44+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 0.95,
+    "decision_reason": "Fukuoka is a well-known city in Japan, making it appropriate to classify as a city.",
+    "summary": "Fukuoka, located on the northern coast of Kyushu Island in Japan, is the capital of Fukuoka Prefecture and the country's sixth-largest city. Historically, it has been a center of international commerce due to its proximity to the Asian mainland. The city is renowned for its distinctive Hakata culture, which includes the famous Hakata tonkotsu ramen—a rich pork bone broth noodle dish—and vibrant yatai street food stalls. Fukuoka also hosts the annual Hakata Gion Yamakasa festival, one of Japan's largest and most dynamic festivals. Visitors can enjoy a blend of urban excitement and natural beauty, with easy access to nearby beaches and mountains. ([japan.travel](https://www.japan.travel/en/destinations/kyushu/fukuoka/fukuoka-city/?utm_source=openai))",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://www.japan.travel/en/destinations/kyushu/fukuoka/fukuoka-city/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.japan.travel/en/destinations/kyushu/fukuoka/?language=en&utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.gofukuoka.jp/about/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.gofukuoka.jp/en?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://gofukuoka.jp/en?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://gofukuoka.jp/?hl=en&utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.thejapanguides.com/city/fukuoka/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.welcome-fukuoka.or.jp/english/archives/205?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.jetro.go.jp/en/invest/region/data/fukuoka-city.html?_previewDate_=null&_previewToken_=&revision=0&viewForce=1&utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.jetro.go.jp/en/invest/region/data/fukuoka-city.html?_previewDate_=null&_tmpCssPreview_=0%2Fbiznews%2F%2Fbiznews%2F%2Fevents%2F%2F%2F%2Fbiznews%2F%2F%2Fbiznews%2F%2F%2Fbiznews%2F%2F%2F%2F&revision=0&viewForce=1&utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://wikipedia.cthon.io/content/wikipedia_en_all_nopic_2024-06/A/Fukuoka?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://youinjapan.net/fukuoka/index.php?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T14:59:42+00:00"
 }

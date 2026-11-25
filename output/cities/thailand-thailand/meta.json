@@ -4,5 +4,68 @@
     "country": "Thailand",
     "lat": 14.8971921,
     "lng": 100.83273,
-    "updated_at": "2026-04-06T07:02:27+00:00"
+    "updated_at": "2026-04-06T07:02:27+00:00",
+    "place_id": "ChIJsU1CR_eNTTARAuhXB4gs154",
+    "place_name": "Thailand",
+    "google_maps_uri": "https://maps.google.com/?cid=11445665940735780866&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "country",
+    "summary_updated_at": "2026-11-24T08:48:12+00:00",
+    "resolved_type": "country",
+    "decision_source": "openai",
+    "decision_confidence": 1,
+    "decision_reason": "Thailand is a sovereign nation.",
+    "summary": "Thailand, officially the Kingdom of Thailand, is a Southeast Asian nation known for its rich cultural heritage, diverse landscapes, and vibrant cities. Located at the heart of mainland Southeast Asia, it shares borders with Myanmar, Laos, Cambodia, and Malaysia, and boasts coastlines along the Gulf of Thailand and the Andaman Sea. The capital city, Bangkok, serves as the country's economic and cultural hub. Thailand's history is marked by its resilience, having maintained sovereignty throughout its existence. Visitors are drawn to its tropical beaches, opulent royal palaces, ancient ruins, and ornate temples displaying figures of Buddha. The country's diverse geography ranges from mountainous regions in the north to tropical beaches in the south, offering a variety of experiences for travelers. Thailand's economy is robust, with manufacturing, agriculture, and tourism being leading sectors. The nation is also renowned for its culinary delights, where rice is a staple and dishes are influenced by diverse regional flavors. ([mmi.org](https://www.mmi.org/thailand?utm_source=openai))",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://www.mmi.org/thailand?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://countrypilot.info/country-profiles/thailand-country-profile/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://thailand.go.th/page/land-area?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://countries.world/asia/thailand/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://tfo.dot.go.th/about-thailand/overview/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://geographypin.com/thailand/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.ebsco.com/research-starters/geography-and-cartography/thailand/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://visit-thailand.net/en-us/Thailand/About-Thailand?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.lovethailand.org/travel/en/17-Bangkok/15696-Overview-of-Thailand.html?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://asean-osh.labour.go.th/thailand/country-info/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.supereducational.com/countries/thailand?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.countryreports.org/articles/thailand-travel-guide?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T15:02:49+00:00"
 }

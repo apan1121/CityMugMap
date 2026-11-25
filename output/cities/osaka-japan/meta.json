@@ -4,5 +4,19 @@
     "country": "Japan",
     "lat": 34.6937569,
     "lng": 135.5014539,
-    "updated_at": "2026-04-06T06:33:54+00:00"
+    "updated_at": "2026-04-06T06:33:54+00:00",
+    "place_id": "ChIJ4eIGNFXmAGAR5y9q5G7BW8U",
+    "place_name": "Osaka",
+    "google_maps_uri": "https://maps.google.com/?cid=14221172930375200743&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:47:34+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 0.95,
+    "decision_reason": "Osaka is a well-known municipality in Japan, confirming its classification as a city.",
+    "summary": "Osaka, Japan's third-largest city, is renowned for its vibrant street food culture, historic landmarks, and modern architecture. The city boasts a rich history, with landmarks like Osaka Castle and Sumiyoshi Taisha Shrine reflecting its cultural heritage. Visitors can experience a blend of traditional and contemporary attractions, from the bustling Dotonbori district to the futuristic Umeda Sky Building.",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [],
+    "summary_generated_at": "2026-11-24T08:47:34+00:00"
 }

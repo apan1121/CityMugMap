@@ -4,5 +4,70 @@
     "country": "Australia",
     "lat": -33.8698439,
     "lng": 151.2082848,
-    "updated_at": "2026-04-06T06:31:56+00:00"
+    "updated_at": "2026-11-22T08:57:35+00:00",
+    "place_id": "ChIJP3Sa8ziYEmsRUKgyFmh9AQM",
+    "place_name": "Sydney",
+    "google_maps_uri": "https://maps.google.com/?cid=216592143092983888&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "place_summary_disclosure": "",
+    "place_summary_flag_uri": "",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:48:08+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 1,
+    "decision_reason": "Sydney is a major city in Australia, known for its iconic landmarks and vibrant culture.",
+    "summary": "Sydney, Australia's largest city and capital of New South Wales, is renowned for its stunning harbor, iconic Sydney Opera House, and the Sydney Harbour Bridge. Established in 1788 as a British penal colony, it has evolved into a vibrant metropolis with a population of approximately 5.6 million residents. The city's rich history is reflected in areas like The Rocks, while its cultural diversity is showcased through neighborhoods such as Chinatown. Visitors can enjoy world-class dining, shopping, and entertainment, along with beautiful beaches like Bondi and Manly. Sydney's dynamic arts scene, numerous parks, and outdoor activities make it a captivating destination for travelers.",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://www.sydney.com/destinations/sydney/sydney-city/city-centre/destination-information/sydney?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.sydney.com/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.sydney.com/?lang=en&utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.sydney.com/destinations/sydney/sydney-city?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.cityofsydney.nsw.gov.au/guides/city-at-a-glance?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.visitsydneyaustralia.com.au/visit.html?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://australiaweb.net/locations/nsw/sydney/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.countryreports.org/articles/sydney-australia?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.austtravel.com.au/11-nsw-regions/21-nsw-sydney/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.nomadstravelguides.com/cities/sydney/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://visitsydney.net/about?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.australia.com/en/places/sydney-and-surrounds/guide-to-sydney.html?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T15:02:37+00:00"
 }

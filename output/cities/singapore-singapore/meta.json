@@ -4,5 +4,68 @@
     "country": "Singapore",
     "lat": 1.357107,
     "lng": 103.8194992,
-    "updated_at": "2026-04-06T07:02:58+00:00"
+    "updated_at": "2026-04-06T07:02:58+00:00",
+    "place_id": "ChIJdZOLiiMR2jERxPWrUs9peIg",
+    "place_name": "Singapore",
+    "google_maps_uri": "https://maps.google.com/?cid=9833726125529626052&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "country",
+    "summary_updated_at": "2026-11-24T08:47:59+00:00",
+    "resolved_type": "country",
+    "decision_source": "openai",
+    "decision_confidence": 0.95,
+    "decision_reason": "Singapore is a sovereign city-state and country, which aligns with the definition of a 'country' rather than just a city.",
+    "summary": "Singapore, officially the Republic of Singapore, is a sovereign island city-state located at the southern tip of the Malay Peninsula in Southeast Asia. Despite its small size—approximately 710 square kilometers—it boasts a population of over 6 million people from diverse ethnic backgrounds, including Chinese, Malay, Indian, and Eurasian communities. Since gaining independence in 1965, Singapore has transformed from a low-income nation into a high-income economy, renowned for its business-friendly environment and robust infrastructure. The city-state is a global financial hub and one of the world's busiest ports, handling over 30 million twenty-foot equivalent units annually. Visitors often experience a harmonious blend of cultures, reflected in its culinary scene, festivals, and multilingual society. Singapore's commitment to innovation and sustainability is evident in landmarks like Gardens by the Bay and its extensive public transportation network. ([mfa.gov.sg](https://www.mfa.gov.sg/about-singapore/?utm_source=openai))",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://www.mfa.gov.sg/about-singapore/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.worldbank.org/ext/en/country/singapore?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://countries.world/asia/singapore/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://countrypilot.info/country-profiles/singapore-country-profile/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://knowyourcountry.org/sg/country?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.countryreports.org/country/Singapore?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://geographypin.com/singapore/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.bdcham.sg/aboutsg?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://globalcincinnati.org/programs/global-education/country-profiles/singapore/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://thecommonwealth.org/our-member-countries/singapore?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.nationsonline.org/oneworld/singapore.htm?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://singaporeglobalnetwork.gov.sg/living-in-singapore/?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T15:02:18+00:00"
 }

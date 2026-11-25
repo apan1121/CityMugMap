@@ -4,5 +4,68 @@
     "country": "Hong Kong",
     "lat": 22.2792968,
     "lng": 114.1628907,
-    "updated_at": "2026-04-06T06:32:28+00:00"
+    "updated_at": "2026-04-06T06:32:28+00:00",
+    "place_id": "ChIJD5gyo-3iAzQRfMnq27qzivA",
+    "place_name": "Hong Kong",
+    "google_maps_uri": "https://maps.google.com/?cid=17332863731023661436&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:46:55+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 0.95,
+    "decision_reason": "Hong Kong is a Special Administrative Region and functions as a city.",
+    "summary": "Hong Kong is a vibrant cosmopolitan city located on China's southern coast, at the mouth of the Pearl River Delta. It comprises Hong Kong Island, Kowloon Peninsula, the New Territories, and over 200 outlying islands. Strategically positioned at the heart of Asia, Hong Kong has built a reputation as a regional business hub, bridging East and West, and is home to a highly productive workforce. ([bjo.gov.hk](https://www.bjo.gov.hk/en/about_hk/general.html?utm_source=openai)) The city is renowned for its spectacular skyline, bustling harbor, diverse culinary scene, and rich cultural heritage. Visitors can experience a unique blend of Chinese traditions and British colonial heritage, offering a diverse and exciting travel experience. ([hketotyo.gov.hk](https://www.hketotyo.gov.hk/korea/en/about-hongkong/?utm_source=openai))",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://www.bjo.gov.hk/en/about_hk/general.html?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.hketotyo.gov.hk/korea/en/about-hongkong/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.wheto.gov.hk/en/about_hk/general.html?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.cdeto.gov.hk/en/about_hk/general.html?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.studyinhongkong.edu.hk/en/why-hong-kong/facts-and-figures.php?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://magnabureau.space/cities/hong-kong?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.tripreport.com/cities/hong_kong_city?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.china-tourism.de/en/provinces/hong_kong/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.hketony.gov.hk/introducing-hong-kong.html?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.nationalgeographic.com/travel/article/hong-kong-1?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.hketosin.gov.hk/living-in-hong-kong.php?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://hongkongtravel.com/about?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T15:00:13+00:00"
 }

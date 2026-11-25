@@ -4,5 +4,68 @@
     "country": "South Korea",
     "lat": 35.8556705,
     "lng": 129.2248811,
-    "updated_at": "2026-04-06T06:34:21+00:00"
+    "updated_at": "2026-04-06T06:34:21+00:00",
+    "place_id": "ChIJHQMN-EZOZjURCcjQz-6WFTc",
+    "place_name": "Gyeongju-si",
+    "google_maps_uri": "https://maps.google.com/?cid=3969244599029909513&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:46:51+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 0.95,
+    "decision_reason": "Gyeongju is a known city in South Korea, historically significant and recognized as a cultural heritage site.",
+    "summary": "Gyeongju, located in southeastern South Korea, was the capital of the ancient Silla Kingdom, which ruled from 57 BC to AD 935. This rich history has earned it the nickname \"the museum without walls.\" Visitors can explore numerous archaeological sites, including the UNESCO World Heritage-listed Bulguksa Temple and Seokguram Grotto, renowned for their intricate stonework and serene atmosphere. The city also features Tumuli Park, home to ancient royal tombs, and the Cheomseongdae Observatory, the oldest surviving astronomical observatory in Asia. Gyeongju's blend of historical landmarks and cultural heritage offers a unique glimpse into Korea's past.",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://mapof.net/city/gyeongju/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.gyeongju.go.kr/open_content/eng/index.do?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://bballi.kr/guide/regions/gyeongju?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://artsandculture.google.com/entity/gyeongju-si/m02716j?hl=en&utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.newworldencyclopedia.org/entry/Gyeongju?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.turismocorea.com/en/gyeongju/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://mapcarta.com/Gyeongju?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://unvis.it/en.wikipedia.org/wiki/Gyeongju?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://realgyeongju.com/entry/All-You-Need-to-Know-About-Gyeongju?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.mindat.org/feature-1833276.html?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.edgepedia.org/gyeongju?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://wanderlog.com/place/details/20992/gyeongju-si?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T14:59:59+00:00"
 }

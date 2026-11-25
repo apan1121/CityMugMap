@@ -4,5 +4,74 @@
     "country": "Malaysia",
     "lat": 3.1516964,
     "lng": 101.6942371,
-    "updated_at": "2026-04-06T06:31:49+00:00"
+    "updated_at": "2026-11-22T08:57:27+00:00",
+    "place_id": "ChIJ0-cIvSo2zDERmWzYQPUfLiM",
+    "place_name": "Federal Territory of Kuala Lumpur",
+    "google_maps_uri": "https://maps.google.com/?cid=2534998778471541913&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "place_summary_disclosure": "",
+    "place_summary_flag_uri": "",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:46:58+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 1,
+    "decision_reason": "Kuala Lumpur is the capital city of Malaysia and is classified as a city.",
+    "summary": "Kuala Lumpur, officially known as the Federal Territory of Kuala Lumpur, is Malaysia's capital city and one of its three federal territories. Established as a federal territory on February 1, 1974, it covers an area of 243 square kilometers and had a population of approximately 2,075,600 as of 2024. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Kuala_Lumpur?utm_source=openai)) As the nation's largest city, Kuala Lumpur serves as the political, economic, and cultural hub of Malaysia. It is renowned for its iconic landmarks, including the Petronas Twin Towers, and offers a vibrant mix of modern architecture and rich cultural heritage. Visitors can experience a dynamic urban environment, diverse culinary scene, and a blend of traditional and contemporary attractions. The city is administered by the Kuala Lumpur City Hall (Dewan Bandaraya Kuala Lumpur), with the Mayor appointed every three years by the Minister of Federal Territories. ([dbkl.gov.my](https://www.dbkl.gov.my/en/latar-belakang?utm_source=openai))",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://en.wikipedia.org/wiki/Kuala_Lumpur?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.dbkl.gov.my/en/latar-belakang?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://legalclarity.org/federal-territory-of-kuala-lumpur-status-and-governance/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.klobserver.com/posts/federal-territory-of-kuala-lumpur?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://x.xlrd.org/x/en.wikipedia.org/wiki/Federal_Territories_of_Malaysia?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://negaraku.md/en/states/kuala-lumpur/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://en.db-city.com/Malaysia--Kuala-Lumpur?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.wikizero.net/wiki/en/Federal_Territory_of_Kuala_Lumpur?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://en.wikipedia-on-ipfs.org.ipns.s402.de/wiki/Capital_of_Malaysia?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.kln.gov.my/web/fin_helsinki/post/federal-territory-day-hari-wilayah-persekutuan?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://library.futurelabz.dev/content/wikipedia_en_all_maxi_2026-02/Federal_territories_of_Malaysia?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://wiki.labowski.net/content/wikipedia_en_all_maxi_2026-08/Federal_territories_of_Malaysia?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://hello.doclang.workers.dev/blog/a-https-en.wikipedia.org/wiki/Federal_territories_of_Malaysia?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T15:00:24+00:00"
 }

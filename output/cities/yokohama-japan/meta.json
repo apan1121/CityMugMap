@@ -4,5 +4,68 @@
     "country": "Japan",
     "lat": 35.4503381,
     "lng": 139.6343802,
-    "updated_at": "2026-04-06T07:02:46+00:00"
+    "updated_at": "2026-04-06T07:02:46+00:00",
+    "place_id": "ChIJCWW2u-xbGGARAFQoYPaDlgY",
+    "place_name": "Yokohama",
+    "google_maps_uri": "https://maps.google.com/?cid=474711904932615168&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:48:20+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 1,
+    "decision_reason": "Yokohama is a major city in Japan.",
+    "summary": "Yokohama, Japan's second-largest city, is a vibrant port metropolis renowned for its rich history and cosmopolitan atmosphere. Established as a trading port in 1859, it quickly became a gateway for international commerce and cultural exchange. Today, Yokohama seamlessly blends modern urban development with historical charm, offering visitors a unique experience. The city's waterfront districts, such as Minato Mirai, feature contemporary architecture, shopping centers, and entertainment venues, while areas like Yamate and Motomachi showcase Western-style buildings and boutiques reflecting its foreign influence. Yokohama is also home to Japan's largest Chinatown, a bustling area filled with vibrant streets, temples, and a diverse culinary scene. Its strategic location along Tokyo Bay provides picturesque harbor views and a relaxed coastal ambiance, making it a popular destination for both tourists and residents seeking a dynamic yet laid-back urban lifestyle. ([yokohamajapan.com](https://www.yokohamajapan.com/about/?utm_source=openai))",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://www.yokohamajapan.com/about/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://yokohamajapan.com/media/en/travel/why/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://business.yokohamajapan.com/media/en/travel/why/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://business.yokohamajapan.com/media/en/overview/basic/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.jusen.co.jp/yokohama?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.nationalgeographic.com/travel/article/guide-to-yokohama-japan?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://web-japan.org/trends/11_food/jfd2025_Yokohama.html?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.japan.travel/en/itineraries/discover-the-past-and-future-in-yokohama/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.japan.travel/en/spot/ma_50/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://japan-hana.com/area-guides/yokohama/yokohama?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://visitkanagawa.jp/area/yokohama-kawasaki/yokohama?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://japan.visaja.com/en/prefectures/kanagawa/yokohama?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T15:03:13+00:00"
 }

@@ -4,5 +4,68 @@
     "country": "Germany",
     "lat": 50.938361,
     "lng": 6.959974,
-    "updated_at": "2026-04-06T06:33:24+00:00"
+    "updated_at": "2026-04-06T06:33:24+00:00",
+    "place_id": "ChIJ5S-raZElv0cR8HcqSvxgJwQ",
+    "place_name": "Cologne",
+    "google_maps_uri": "https://maps.google.com/?cid=299314536935749616&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:46:42+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 1,
+    "decision_reason": "Cologne is a recognized municipality in Germany.",
+    "summary": "Cologne, known as Köln in German, is a vibrant city located on the banks of the Rhine River in western Germany. With a population of over one million, it is the largest city in North Rhine-Westphalia and the fourth-largest in Germany. Founded by the Romans in 38 AD, Cologne boasts a rich history that seamlessly blends ancient Roman heritage with modern urban life. The city's skyline is dominated by the Cologne Cathedral (Kölner Dom), a UNESCO World Heritage site and a masterpiece of Gothic architecture. Beyond its historical landmarks, Cologne is renowned for its lively cultural scene, including the world-famous Cologne Carnival, and its relaxed atmosphere, epitomized by the local Kölsch beer and the \"rheinische Frohsinn\" (Rhenish cheerfulness) that permeates its streets. Visitors can explore the charming Old Town (Altstadt), stroll along the picturesque Rhine promenade, and enjoy a diverse array of museums and galleries that reflect the city's artistic heritage. ([everythingaboutgermany.de](https://www.everythingaboutgermany.de/en/cities/cologne/?utm_source=openai))",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://www.everythingaboutgermany.de/en/cities/cologne/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.germansights.com/cologne/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.germany.travel/en/cities-culture/cologne.html?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://cities.travel/germany/cologne?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.hanse.org/en/hanse/koeln?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://en.advisor.travel/city/Cologne-494432?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.iamexpat.de/lifestyle/german-cities/cologne-koeln-city-guide?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.tourism.de/cologne/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://townsofeurope.com/Germany/Cologne.html?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://eol.jsc.nasa.gov/collections/earthobservatory/articles/CologneGermany.htm?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.turismoalemania.com/en/cologne?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://mynext.holiday/destinations/germany/cologne/?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T14:59:36+00:00"
 }

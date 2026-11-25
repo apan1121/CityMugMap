@@ -4,5 +4,18 @@
     "country": "United States",
     "lat": 37.4265407,
     "lng": -122.1703055,
-    "updated_at": "2026-11-22T07:31:13+00:00"
+    "updated_at": "2026-11-22T07:31:13+00:00",
+    "resolved_type": "attraction",
+    "decision_source": "openai",
+    "decision_confidence": 0.95,
+    "decision_reason": "Stanford University is a well-known educational institution and a popular point of interest, hence it is classified as an attraction.",
+    "place_id": "ChIJneqLZyq7j4ARf2j8RBrwzSk",
+    "place_name": "Stanford University",
+    "google_maps_uri": "https://maps.google.com/?cid=3012327721397938303&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "place_summary": "Founded in 1885, this private research school is known for law, engineering, business & medicine.",
+    "place_summary_source": "editorialSummary",
+    "summary": "Founded in 1885, this private research school is known for law, engineering, business & medicine.",
+    "summary_source": "google_places",
+    "type": "attraction",
+    "summary_updated_at": "2026-11-24T08:48:04+00:00"
 }

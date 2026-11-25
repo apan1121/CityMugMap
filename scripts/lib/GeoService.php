@@ -6,6 +6,7 @@ final class GeoService
 {
     private string $userAgent;
     private string $googlePlacesApiKey;
+    private ?int $lastRetryAfterSeconds = null;
 
     public function __construct(string $userAgent, string $googlePlacesApiKey = '')
     {
@@ -184,6 +185,68 @@ final class GeoService
         return $this->lookup($query);
     }
 
+    /**
+     * Look up the corresponding city in Google Places and return shared place
+     * metadata for output/cities/{city_key}/meta.json.
+     */
+    public function lookupCityPlaceSummary(string $city, string $country, float $lat, float $lng): array
+    {
+        if ($this->googlePlacesApiKey === '') {
+            return [];
+        }
+
+        $city = trim($city);
+        $country = trim($country);
+        if ($city === '') {
+            return [];
+        }
+
+        $textQuery = $city;
+        if ($country !== '' && strcasecmp($city, $country) !== 0) {
+            $textQuery .= ', ' . $country;
+        }
+
+        $response = $this->postJson(
+            'https://places.googleapis.com/v1/places:searchText',
+            [
+                'textQuery' => $textQuery,
+                'maxResultCount' => 1,
+                'languageCode' => 'en',
+                'locationBias' => [
+                    'circle' => [
+                        'center' => [
+                            'latitude' => $lat,
+                            'longitude' => $lng,
+                        ],
+                        'radius' => 50000,
+                    ],
+                ],
+            ],
+            'places.id,places.displayName,places.editorialSummary,places.generativeSummary,places.googleMapsUri'
+        );
+
+        $place = isset($response['places'][0]) && is_array($response['places'][0])
+            ? $response['places'][0]
+            : null;
+        if ($place === null) {
+            return [];
+        }
+
+        $editorialSummary = trim((string) ($place['editorialSummary']['text'] ?? ''));
+        $generativeSummary = trim((string) ($place['generativeSummary']['overview']['text'] ?? ''));
+        $summary = $generativeSummary !== '' ? $generativeSummary : $editorialSummary;
+
+        return [
+            'place_id' => (string) ($place['id'] ?? ''),
+            'place_name' => (string) ($place['displayName']['text'] ?? ''),
+            'google_maps_uri' => (string) ($place['googleMapsUri'] ?? ''),
+            'place_summary' => $summary !== '' ? $summary : null,
+            'place_summary_source' => $generativeSummary !== '' ? 'generativeSummary' : ($editorialSummary !== '' ? 'editorialSummary' : null),
+            'place_summary_disclosure' => (string) ($place['generativeSummary']['disclosureText']['text'] ?? ''),
+            'place_summary_flag_uri' => (string) ($place['generativeSummary']['overviewFlagContentUri'] ?? ''),
+        ];
+    }
+
     public function lookupCountry(string $country): array
     {
         $country = trim($country);
@@ -314,8 +377,28 @@ final class GeoService
             throw new RuntimeException('Failed to initialize curl for GeoService.');
         }
 
+        $retryAfterSeconds = null;
+        $this->lastRetryAfterSeconds = null;
+
         curl_setopt_array($ch, [
             CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_MAXREDIRS => 5,
+            CURLOPT_HEADERFUNCTION => static function ($curl, string $header) use (&$retryAfterSeconds): int {
+                if (stripos($header, 'Retry-After:') === 0) {
+                    $value = trim(substr($header, strlen('Retry-After:')));
+                    if (ctype_digit($value)) {
+                        $retryAfterSeconds = (int) $value;
+                    } else {
+                        $timestamp = strtotime($value);
+                        if ($timestamp !== false) {
+                            $retryAfterSeconds = max(0, $timestamp - time());
+                        }
+                    }
+                }
+
+                return strlen($header);
+            },
             CURLOPT_HTTPHEADER => [
                 'Accept: application/json',
                 'User-Agent: ' . $this->userAgent,
@@ -334,12 +417,60 @@ final class GeoService
         curl_close($ch);
 
         if ($statusCode >= 400) {
+            $this->lastRetryAfterSeconds = $retryAfterSeconds;
             throw new RuntimeException(sprintf('Geo request failed with HTTP %d for %s', $statusCode, $url));
         }
 
         $decoded = json_decode($rawResponse, true);
         if (!is_array($decoded)) {
             throw new RuntimeException(sprintf('Geo service returned invalid JSON for %s', $url));
+        }
+
+        return $decoded;
+    }
+
+    private function postJson(string $url, array $payload, string $fieldMask): array
+    {
+        $ch = curl_init($url);
+        if ($ch === false) {
+            throw new RuntimeException('Failed to initialize Google Places request.');
+        }
+
+        $body = json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        if ($body === false) {
+            curl_close($ch);
+            throw new RuntimeException('Failed to encode Google Places request.');
+        }
+
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => $body,
+            CURLOPT_HTTPHEADER => [
+                'Content-Type: application/json',
+                'X-Goog-Api-Key: ' . $this->googlePlacesApiKey,
+                'X-Goog-FieldMask: ' . $fieldMask,
+            ],
+            CURLOPT_TIMEOUT => 30,
+        ]);
+
+        $rawResponse = curl_exec($ch);
+        if ($rawResponse === false) {
+            $error = curl_error($ch);
+            curl_close($ch);
+            throw new RuntimeException('Google Places request failed: ' . $error);
+        }
+
+        $statusCode = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        if ($statusCode >= 400) {
+            throw new RuntimeException(sprintf('Google Places request failed with HTTP %d.', $statusCode));
+        }
+
+        $decoded = json_decode($rawResponse, true);
+        if (!is_array($decoded)) {
+            throw new RuntimeException('Google Places returned invalid JSON.');
         }
 
         return $decoded;

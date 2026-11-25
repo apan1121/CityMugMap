@@ -4,5 +4,68 @@
     "country": "Belgium",
     "lat": 51.2211097,
     "lng": 4.3997081,
-    "updated_at": "2026-04-06T07:03:16+00:00"
+    "updated_at": "2026-04-06T07:03:16+00:00",
+    "place_id": "ChIJfYjDv472w0cRuIqogoRErz4",
+    "place_name": "Antwerp",
+    "google_maps_uri": "https://maps.google.com/?cid=4516904287194352312&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:46:27+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 1,
+    "decision_reason": "Antwerp is a well-known city located in Belgium.",
+    "summary": "Antwerp, located in the Flemish Region of Belgium, is the country's second-largest city and a vibrant cultural hub. Situated on the River Scheldt, it boasts a rich history as a major port and is renowned for its diamond trade. The city's historic center features cobblestone streets, the imposing Cathedral of Our Lady, and charming cafés. Antwerp is also celebrated as a fashion capital, home to the Royal Academy of Fine Arts, which has produced influential designers. Visitors can explore its dynamic arts scene, diverse culinary offerings, and lively nightlife. ([nationalgeographic.com](https://www.nationalgeographic.com/travel/article/antwerp-guide-belgium-striking-second-city?utm_source=openai))",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://www.nationalgeographic.com/travel/article/antwerp-guide-belgium-striking-second-city?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.visitbelgium.info/en/flanders/antwerp/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.roughguides.com/belgium/antwerp-northeast/antwerp/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.whereineurope.eu/place/antwerp/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.themayor.eu/en/belgium/antwerp/info?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.turismobelgica.com/en/antwerp?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.lonelyplanet.com/destinations/belgium/antwerp?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://eurocities.eu/cities/antwerp/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.discover-belgium.be/en/antwerp?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.visitflanders.com/en/flemish-destinations/antwerp?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.edgepedia.org/antwerp?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.eupedia.com/belgium/antwerp.shtml?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T14:54:29+00:00"
 }

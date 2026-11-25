@@ -4,5 +4,68 @@
     "country": "Thailand",
     "lat": 13.7524938,
     "lng": 100.4935089,
-    "updated_at": "2026-04-06T06:57:39+00:00"
+    "updated_at": "2026-04-06T06:57:39+00:00",
+    "place_id": "ChIJ82ENKDJgHTERIEjiXbIAAQE",
+    "place_name": "Bangkok",
+    "google_maps_uri": "https://maps.google.com/?cid=72339835093927968&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:46:29+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 0.99,
+    "decision_reason": "Bangkok is the capital city of Thailand.",
+    "summary": "Bangkok, the capital and largest city of Thailand, is a vibrant metropolis situated on the Chao Phraya River. Known as the \"City of Angels,\" it serves as the nation's political, economic, and cultural hub. The city seamlessly blends historic landmarks, such as the Grand Palace and Wat Arun, with modern attractions like bustling shopping districts and lively nightlife. Visitors can explore ornate temples, savor diverse street food, and experience the energetic atmosphere of areas like Khaosan Road. Despite its rapid growth and urban challenges, Bangkok remains a dynamic destination that offers a unique fusion of tradition and modernity.",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://thailand.go.th/page/capital-city?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.ciameglobal.com/th/services/detail/697c521ebaf9a799f56f0f07?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://steden.groetjesuitthailand.nl/en/bangkok/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.countryreports.org/articles/bangkok?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://creativecity.cea.or.th/en/cities/bangkok/about?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.thai-travel-guide.com/destinations/bangkok?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://entrycompass.com/cities/bangkok?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://simplythailand.com/bangkok/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.nomadstravelguides.com/cities/bangkok/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://waytovietnam.com/travel-guides/thailand-travel-destinations/bangkok-city.htm?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.visit-thailand.org/cities/14-bangkok.html?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://thailand0.uk/cities/bangkok/?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T14:58:57+00:00"
 }

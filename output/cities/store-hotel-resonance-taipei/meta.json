@@ -4,5 +4,19 @@
     "country": "Taiwan",
     "lat": 25.0437003,
     "lng": 121.5239036,
-    "updated_at": "2026-04-06T07:26:25+00:00"
+    "updated_at": "2026-04-06T07:26:25+00:00",
+    "resolved_type": "city",
+    "decision_source": "openai",
+    "decision_confidence": 0.95,
+    "decision_reason": "Taipei is the capital city of Taiwan.",
+    "place_id": "ChIJmQrivHKsQjQR4MIK3c41aj8",
+    "place_name": "Taipei",
+    "google_maps_uri": "https://maps.google.com/?cid=4569523934508794592&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "summary": "Taipei, the capital of Taiwan, is a vibrant metropolis known for its blend of modernity and tradition. The city boasts a rich history, with landmarks like the National Palace Museum housing extensive Chinese art collections. Visitors often explore bustling night markets, savoring local delicacies, and ascend Taipei 101 for panoramic city views. Taipei's efficient public transportation and welcoming atmosphere make it a popular destination for travelers seeking cultural experiences and urban excitement.",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [],
+    "summary_generated_at": "2026-11-22T15:02:23+00:00",
+    "type": "city",
+    "summary_updated_at": "2026-11-24T08:48:01+00:00"
 }

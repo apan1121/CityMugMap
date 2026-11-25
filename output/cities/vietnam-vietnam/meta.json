@@ -4,5 +4,68 @@
     "country": "Vietnam",
     "lat": 15.9266657,
     "lng": 107.9650855,
-    "updated_at": "2026-09-19T15:55:59+00:00"
+    "updated_at": "2026-09-19T15:55:59+00:00",
+    "place_id": "ChIJXx5qc016FTERvmL-4smwO7A",
+    "place_name": "Vietnam",
+    "google_maps_uri": "https://maps.google.com/?cid=12698937955444482750&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "type": "country",
+    "summary_updated_at": "2026-11-24T08:48:19+00:00",
+    "resolved_type": "country",
+    "decision_source": "openai",
+    "decision_confidence": 1,
+    "decision_reason": "Vietnam is a sovereign nation.",
+    "summary": "Vietnam, officially the Socialist Republic of Vietnam, is a country located on the eastern edge of Mainland Southeast Asia. It shares borders with China to the north, Laos and Cambodia to the west, and has an extensive coastline along the South China Sea to the east. The capital city is Hanoi, while Ho Chi Minh City is the largest city and a major commercial hub. Vietnam's history is marked by periods of Chinese dominance, French colonial rule, and the Vietnam War, which ended in 1975 with the reunification of the country under communist governance. Since the 1980s, Vietnam has undergone significant economic reforms, transitioning from a centrally planned economy to a socialist-oriented market system, leading to rapid economic growth and development. Visitors to Vietnam can experience a rich cultural heritage, diverse landscapes ranging from mountainous regions to tropical beaches, and vibrant cities that blend traditional and modern influences.",
+    "summary_source": "openai_web_search",
+    "summary_model": "gpt-4o-mini",
+    "summary_sources": [
+        {
+            "title": "",
+            "url": "https://taxsummaries.pwc.com/vietnam?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://countrypilot.info/country-profiles/vietnam-country-profile/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.countryreports.org/country/Vietnam?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://world-countries.co.uk/countries/vietnam/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.ncbi.nlm.nih.gov/books/NBK620912/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://magnabureau.space/factbook/vietnam?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.admin.vietnamembassy-usa.org/vietnam/geography?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://gentlyyonder.com/countries/vietnam/index.html?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://countries.world/asia/vietnam/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.countriesoftheworld.org/vietnam?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://www.worldometers.info/countries/vietnam/?utm_source=openai"
+        },
+        {
+            "title": "",
+            "url": "https://vietnamfactbook.com/places/vietnam?utm_source=openai"
+        }
+    ],
+    "summary_generated_at": "2026-11-22T15:03:06+00:00"
 }
